@@ -1,3 +1,4 @@
+Host: luzfaltex.github.io
 LinksUseHttps: true
 MirrorResources: true
 EditLink: => "https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/" + doc.Source.GetRelativeInputPath()
