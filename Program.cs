@@ -11,12 +11,10 @@ namespace LuzFaltex.Web
             => await Bootstrapper
             .Factory
             .CreateWeb(args)
-            /*
-            .DeployToGitHubPagesBranch(
+            .DeployToGitHubPages(
                 "LuzFaltex", 
                 "www.luzfaltex.com", 
-                Config.FromSetting<string>("GITHUB_TOKEN"),
-                "gh_pages") */
+                Config.FromSetting<string>("GITHUB_TOKEN"))
             .RunAsync();
     }
 }
