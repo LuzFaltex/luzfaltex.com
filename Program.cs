@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Octokit;
 using Statiq.App;
 using Statiq.Web;
 using Statiq.Common;
@@ -11,12 +12,6 @@ namespace LuzFaltex.Web
             => await Bootstrapper
             .Factory
             .CreateWeb(args)
-            /*
-            .DeployToGitHubPagesBranch(
-                "LuzFaltex", 
-                "www.luzfaltex.com", 
-                Config.FromSetting<string>("GITHUB_TOKEN"),
-                "gh_pages") */
             .RunAsync();
     }
 }
