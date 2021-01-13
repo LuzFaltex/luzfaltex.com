@@ -12,7 +12,6 @@ namespace LuzFaltex.Web
             => await Bootstrapper
             .Factory
             .CreateWeb(args)
-            .AddPipeline<Statiq.Web.Pipelines.Deployment>()
             /*
             .DeployToGitHubPages(
                 "LuzFaltex", 
