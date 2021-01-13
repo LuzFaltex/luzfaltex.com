@@ -1,0 +1,132 @@
+@import "./vars";
+
+// Vars Override
+@import "./luzfaltex.theme.vars.scss";
+
+@import "./mixins";
+@import "./modules";
+
+// Other overrides
+* {
+    -webkit-font-smoothing: subpixel antialiased;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+body {
+    background-color: $body-background;
+}
+
+.logo {
+    margin-right: auto;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+
+    img {
+        max-height: 70px;
+        max-width: 100%;
+    }
+    h2 {
+        font-family: sans-serif;
+    }
+}
+
+.header {
+    background-color: $background-box;
+    padding: 23px;
+    display: flex;
+    align-items: center;
+    min-height: 120px;
+    max-height: 100%;
+}
+
+.navMenu {
+    background-color: $navmenu-bg;
+    max-height: 50px;
+    border-top: 1px solid $color-orange;
+
+    .layoutContainer {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.is-navbar a {
+    text-decoration: none;
+
+    &:not(.button) {
+        font-weight: 600;
+        line-height: normal;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #FFF;
+        background: transparent;
+        border-radius: 0px;
+        padding: 16px 27px;
+    }
+
+    .is-active, &:hover {
+        background-color: $color-orange;
+    }
+}
+
+.layoutContainer {
+    max-width: 85%;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.box {
+    margin-top: 20px;
+    background-color: $background-box;
+    padding: 20px;
+
+    .box {
+        background-color: $background-child-box;
+    }
+}
+
+.extendedFooter {
+    background-color: $background-box;
+    margin-top: 20px;
+    padding: 30px 15px 30px 15px;
+}
+
+.copyrightFooter {
+    @include flex;
+    padding: 23px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.is-muted {
+    color: rgba($color-inverted, .6);
+}
+.is-muted a,
+a.is-muted {
+    color: rgba($color-inverted, .6);
+    text-decoration: none;
+}
+.is-muted a:hover,
+a.is-muted:hover {
+    @include transition;
+    color: $color-inverted;
+}
+
+p,
+blockquote,
+hr,
+pre,
+ol,
+ul,
+dl,
+figure,
+address {
+    margin-bottom: 0;
+}
