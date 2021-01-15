@@ -8,6 +8,7 @@ namespace LuzFaltex.Web
 {
     public class Program
     {
+        public const string GitHubToken = "GITHUB_TOKEN";
         public static async Task<int> Main(string[] args)
         {
             return await Bootstrapper
@@ -15,7 +16,8 @@ namespace LuzFaltex.Web
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                settings[WebKeys.GitHubToken] = Config.FromSetting<string>("GITHUB_TOKEN");
+                // settings[WebKeys.GitHubToken] = Config.FromSetting<string>(GitHubToken);
+                settings[WebKeys.GitHubToken] = Environment.GetEnvironmentVariable(GitHubToken);
             })
             .RunAsync();
         }
