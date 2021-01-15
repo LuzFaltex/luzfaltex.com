@@ -13,7 +13,7 @@ namespace LuzFaltex.Web
         {
             /*
             var envVar = Environment.GetEnvironmentVariable(GitHubToken);
-            var settingsVar = Config.FromSettings<string>(x => x.GetString(GitHubToken, string.Empty));
+            var settingsVar = Config.FromSettings<string>(x => x.GetString(GitHubToken, string.Empty)).GetValueAsync();
 
             WriteLineColor($"{GitHubToken} (registry): {envVar}{Environment.NewLine}{GitHubToken} (settings): {settingsVar}", ConsoleColor.Red);
             */
@@ -21,6 +21,11 @@ namespace LuzFaltex.Web
             return await Bootstrapper
             .Factory
             .CreateWeb(args)
+            .DeployToGitHubPages(
+                "LuzFaltex",
+                "luzfaltex.github.io",
+                Environment.GetEnvironmentVariable(GitHubToken)
+            )
             .RunAsync();
         }
 
