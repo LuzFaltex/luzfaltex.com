@@ -8,6 +8,8 @@ namespace LuzFaltex.Web
 {
     public class Program
     {
+        public const string GitHubOwner = "LuzFaltex";
+        public const string GitHubName = "luzfaltex.github.io";
         public const string GitHubToken = "GITHUB_TOKEN";
         public static async Task<int> Main(string[] args)
         {
@@ -21,11 +23,12 @@ namespace LuzFaltex.Web
             return await Bootstrapper
             .Factory
             .CreateWeb(args)
-            .DeployToGitHubPages(
-                "LuzFaltex",
-                "luzfaltex.github.io",
-                Environment.GetEnvironmentVariable(GitHubToken)
-            )
+            .ConfigureSettings(config =>
+            {
+                config[WebKeys.GitHubOwner] = GitHubOwner;
+                config[WebKeys.GitHubName] = GitHubName;
+                config[WebKeys.GitHubToken] = Config.FromSetting<string>(GitHubToken);
+            })
             .RunAsync();
         }
 
