@@ -13,6 +13,10 @@ namespace LuzFaltex.Web
             return await Bootstrapper
             .Factory
             .CreateWeb(args)
+            .ConfigureSettings(settings =>
+            {
+                settings[WebKeys.GitHubToken] = Config.FromSetting<string>("GITHUB_TOKEN");
+            })
             .RunAsync();
         }
     }
