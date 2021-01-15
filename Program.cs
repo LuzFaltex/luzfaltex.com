@@ -11,10 +11,12 @@ namespace LuzFaltex.Web
         public const string GitHubToken = "GITHUB_TOKEN";
         public static async Task<int> Main(string[] args)
         {
+            /*
             var envVar = Environment.GetEnvironmentVariable(GitHubToken);
             var settingsVar = Config.FromSettings<string>(x => x.GetString(GitHubToken, string.Empty));
 
             WriteLineColor($"{GitHubToken} (registry): {envVar}{Environment.NewLine}{GitHubToken} (settings): {settingsVar}", ConsoleColor.Red);
+            */
 
             return await Bootstrapper
             .Factory
