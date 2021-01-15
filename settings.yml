@@ -1,3 +1,6 @@
 LinksUseHttps: true
 MirrorResources: true
 EditLink: => "https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/" + doc.Source.GetRelativeInputPath()
+GitHubOwner: LuzFaltex
+GitHubName: luzfaltex.github.io
+GitHubToken: => Config.FromSetting<string>("GITHUB_TOKEN")
