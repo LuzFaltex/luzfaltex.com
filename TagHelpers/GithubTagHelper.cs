@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace LuzFaltex.Web.TagHelpers
 {
-    [HtmlTargetElement("github")]
+    [HtmlTargetElement("github", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class GithubTagHelper : TagHelper
     {
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace LuzFaltex.Web.TagHelpers
             output.Attributes.Add("href", $"https://github.com/{Name}");
             output.Attributes.Add("target", "_blank");
             output.Attributes.Add("rel", "noopener");
-            output.Content.SetHtmlContent(Name);
+            output.Content.SetHtmlContent($"@{Name}");
         }
     }
 }

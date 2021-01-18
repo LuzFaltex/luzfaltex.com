@@ -1,3 +1,4 @@
+@import "./vars";
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap');
 
 // Font Family
@@ -12,3 +13,26 @@ $background-child-box: #32343b;
 $navmenu-bg: #32343b;
 $color-link: #fff;
 $color-link-hover: $color-orange;
+
+// Error
+$alert-error-background: rgba($color-error, .1);
+$alert-error-border-color: rgba($color-error, .7);
+$alert-error-link-color-hover: $color-link;
+
+// Success
+$alert-success-background: rgba($color-success, .1);
+$alert-success-border-color: rgba($color-success, .7);
+$alert-success-link-color-hover: $color-link !default;
+
+// Warning
+$alert-warning-background: rgba($color-warning, .1);
+$alert-warning-border-color: rgba($color-warning, .7);
+$alert-warning-color-text: $color-warning;
+$alert-warning-link-color-hover: $color-link;
+
+// Focus
+$color-focus: #49aaff;
+$alert-focus-background: rgba($color-focus, .1);
+$alert-focus-border-color: rgba($color-focus, .7);
+$alert-focus-link-color-hover: $color-link;
+

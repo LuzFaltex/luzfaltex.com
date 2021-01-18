@@ -16,8 +16,8 @@ namespace LuzFaltex.Web
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                // settings[WebKeys.GitHubToken] = Config.FromSetting<string>(GitHubToken);
-                settings[WebKeys.GitHubToken] = Environment.GetEnvironmentVariable(GitHubToken);
+                settings[WebKeys.GitHubToken] = Config.FromSetting<string>(GitHubToken);
+                // settings[WebKeys.GitHubToken] = Environment.GetEnvironmentVariable(GitHubToken);
             })
             .RunAsync();
         }

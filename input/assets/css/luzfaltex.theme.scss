@@ -1,5 +1,3 @@
-@import "./vars";
-
 // Vars Override
 @import "./luzfaltex.theme.vars.scss";
 
@@ -24,6 +22,11 @@ body {
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
+    text-decoration: none;
+
+    &:hover {
+        color: #FFF;
+    }
 
     img {
         max-height: 70px;
@@ -56,6 +59,7 @@ body {
 
 .is-navbar a {
     text-decoration: none;
+    border-bottom: 3px solid transparent;
 
     &:not(.button) {
         font-weight: 600;
@@ -68,9 +72,18 @@ body {
         padding: 16px 27px;
     }
 
-    .is-active, &:hover {
+    &:hover {
+        background-color: rgba($color-orange, .7);
+        border-bottom-color: white;
+    }
+
+    &.is-active {
         background-color: $color-orange;
     }
+}
+
+.is-navbar li {
+    margin-left: 0;
 }
 
 .layoutContainer {
@@ -129,4 +142,47 @@ dl,
 figure,
 address {
     margin-bottom: 0;
+}
+
+.alert {
+    margin-top: 12px;
+
+    &.is-warning {
+        background: $alert-warning-background;
+        border-color: $alert-warning-border-color;
+        color: $alert-warning-color-text;
+        & a:hover {
+            color: $alert-warning-link-color-hover;
+        }
+    }
+    &.is-info {
+        @extend .alert.is-focus !optional;
+    }
+}
+
+table > thead > tr {
+    background-color: $navmenu-bg;
+}
+
+table.is-striped {     
+    tr:nth-child(odd) td {
+        background-color: inherit;
+    }
+
+    tr:nth-child(even) {
+        background-color: $body-background;
+    }
+}
+
+.main-sidebar {
+    @include make-sidebar(240px);
+    margin-right: 16px;
+
+    @include for-mobile {
+        margin-right: 0px;
+    }
+}
+
+.main-content {
+    @include make-content;
 }
