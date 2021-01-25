@@ -16,7 +16,7 @@
     <script src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
 </head>
 
-<body>
+<body data-theme="dark">
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
@@ -40,6 +40,21 @@
                             </ul>
                         </nav>
                     </div>
+                    <div class="is-navbar-right">
+                        <ul class="is-bar">
+                            <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
+                            <li>
+                                <div class="slider">
+                                    <input type="checkbox" id="themeSwitch" class="slider" checked="">
+                                    <label for="themeSwitch" class="toggle-label"></label>
+                                </div>
+                            </li>
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li>
+                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/projects/index.cshtml" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                            </li>
+                        </ul>
+                    </div>             
                 </div>
             </div>
         </div>
@@ -61,22 +76,29 @@
 
                 <div class="copyrightFooter">
                     <div class="layoutContainer">
-                        <ul class="is-bar is-text-center">
-    <li><a href="/policies/privacy">Privacy Policy</a></li>
-    <li><a href="/policies/terms">TACOS</a></li>
-    <li><a href="/policies/logos">Logos</a></li>
-    <li><a href="/contact/index">Contact Us</a></li>
+                        <ul class="is-unstyled">
+    <li>
+        <nav>
+            <ul class="is-bar is-text-center">
+                <li><a href="/policies/privacy">Privacy Policy</a></li>
+                <li><a href="/policies/terms">TACOS</a></li>
+                <li><a href="/policies/logos">Logos</a></li>
+                <li><a href="/contact/index">Contact Us</a></li>
+            </ul>
+        </nav>
+    </li>
+    <li class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</li>
 </ul>
-<p class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</p>
-<p class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>.</p>
-<p class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</p>
                     </div>               
                 </div>                
 
             </div>
         </footer>
     </div>
-    <script src="/assets/js/kube.min.js"></script>    
+    <script src="/assets/js/kube.min.js"></script>
+    <script src="/assets/js/site.js"></script>
 
 
 </body></html>
