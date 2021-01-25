@@ -1,0 +1,35 @@
+@{
+    var headings = Document.GetDocumentList(Statiq.Html.HtmlKeys.Headings);
+
+    if (headings.Any())
+    {
+        <div class="box">
+            <h3 class="no-anchor">On This Page</h3>
+            
+        </div>
+    }
+    <div class="box">
+        <div class="label is-warning">Debug Panel</div>
+        <p>Heading count: @headings.Count</p>
+        <ul>
+            @foreach (IDocument heading in headings)
+            {
+                <li>@(await heading.GetContentStringAsync())</li>
+                <ul>
+                    @{
+                        var documentListCount = heading.GetDocumentList(Statiq.Html.HtmlKeys.Headings).Count;
+                        var headingId = heading.GetString("HeadingId");
+                        var childCount = heading.GetChildren().Count;
+                        var level = heading.GetString("Level");
+                        var childMetadata = heading.GetDocumentList("Children");
+                        <li>Heading ID: @headingId</li>
+                        <li>Level: @level</li>
+                        <li>Document List Count: @documentListCount</li>
+                        <li>Child Count: @childCount</li>
+                        <li>Child Metadata Count: @childMetadata.Count</li>
+                    }
+                </ul>
+            }
+        </ul>
+    </div>
+}

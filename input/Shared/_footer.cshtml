@@ -1,9 +1,15 @@
-<ul class="is-bar is-text-center">
-    <li><a href="@ExecutionContext.GetLink("policies/privacy")">Privacy Policy</a></li>
-    <li><a href="@ExecutionContext.GetLink("policies/terms")">TACOS</a></li>
-    <li><a href="@ExecutionContext.GetLink("policies/logos")">Logos</a></li>
-    <li><a href="@ExecutionContext.GetLink("contact/index")">Contact Us</a></li>
+<ul class="is-unstyled">
+    <li>
+        <nav>
+            <ul class="is-bar is-text-center">
+                <li><a href="@ExecutionContext.GetLink("policies/privacy")">Privacy Policy</a></li>
+                <li><a href="@ExecutionContext.GetLink("policies/terms")">TACOS</a></li>
+                <li><a href="@ExecutionContext.GetLink("policies/logos")">Logos</a></li>
+                <li><a href="@ExecutionContext.GetLink("contact/index")">Contact Us</a></li>
+            </ul>
+        </nav>
+    </li>
+    <li class="is-text-center">Copyright &copy; LuzFaltex, LLC 2014-@DateTime.UtcNow.Year, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center is-muted">Built by our wonderful <a href="@ExecutionContext.GetLink("contributors")">contributors</a>.</li>
 </ul>
-<p class="is-text-center">Copyright &copy; LuzFaltex, LLC 2014-@DateTime.UtcNow.Year, all rights reserved.</p>
-<p class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>.</p>
-<p class="is-text-center is-muted">Built by our wonderful <a href="@ExecutionContext.GetLink("contributors")">contributors</a>.</p>
