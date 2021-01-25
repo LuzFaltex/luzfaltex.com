@@ -1,0 +1,28 @@
+@{
+    ViewData[Constants.Title] = Document.GetString(Keys.Title);
+    ViewData[Constants.OpenGraphTitle] = Document.ContainsKey(Constants.OpenGraphTitle) ? Document.GetString(Constants.OpenGraphTitle) : ViewData[Constants.Title];
+    ViewData[Constants.OpenGraphDescription] = Document.GetString(Constants.OpenGraphDescription);
+    Layout = "_MasterLayout";
+}
+<div class="alert is-warning">
+    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This article is still under construction! please be patient as we deploy our content.
+</div>
+<div class="is-container">
+    <div class="main-sidebar">
+        <div class="box">
+            <partial name="_docsSidebar" />
+        </div>
+        <partial name="_tocList" />   
+    </div>
+    <div class="main-content">
+        <div class="box">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+    anchors.add()
+    anchors.remove('.no-anchor')
+</script>

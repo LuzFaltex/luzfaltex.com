@@ -13,8 +13,34 @@
     -ms-backface-visibility: hidden;
 }
 
+// Color overrides
+:root {
+    --body-background: #{$body-background};
+    --color-text: #{$color-text};
+    --color-orange: #{$color-orange};    
+    --background-box: #{$background-box};    
+    --background-child-box: #{$background-child-box};
+    --header-bg: var(--background-box);
+    --navmenu-bg: #{$navmenu-bg};
+    --color-link: #{$color-link};
+    --color-link-hover: #{$color-link-hover};
+    --color-foreground: #{$color-foreground};
+    --color-inverted: #{$color-inverted};
+}
+
+[data-theme="light"] {
+    --body-background: #fff;
+    --color-text: #222;
+    --background-box: #eee;
+    --background-child-box: #ddd;
+    --header-bg: transparent;
+    --navmenu-bg: #666;
+    --color-link: #222;
+}
+
 body {
-    background-color: $body-background;
+    background-color: var(--body-background);
+    color: var(--color-text);
 }
 
 .logo {
@@ -25,7 +51,7 @@ body {
     text-decoration: none;
 
     &:hover {
-        color: #FFF;
+        color: var(--color-link);
     }
 
     img {
@@ -38,7 +64,7 @@ body {
 }
 
 .header {
-    background-color: $background-box;
+    background-color: var(--header-bg);
     padding: 23px;
     display: flex;
     align-items: center;
@@ -47,9 +73,9 @@ body {
 }
 
 .navMenu {
-    background-color: $navmenu-bg;
+    background-color: var(--navmenu-bg);
     max-height: 50px;
-    border-top: 1px solid $color-orange;
+    border-top: 1px solid var(--color-orange);
 
     .layoutContainer {
         display: flex;
@@ -57,33 +83,53 @@ body {
     }
 }
 
-.is-navbar a {
-    text-decoration: none;
-    border-bottom: 3px solid transparent;
-
-    &:not(.button) {
-        font-weight: 600;
-        line-height: normal;
-        font-size: 14px;
-        text-transform: uppercase;
-        color: #FFF;
-        background: transparent;
-        border-radius: 0px;
-        padding: 16px 27px;
-    }
-
-    &:hover {
-        background-color: rgba($color-orange, .7);
-        border-bottom-color: white;
-    }
-
-    &.is-active {
-        background-color: $color-orange;
+.is-navbar-container {
+    &, & a {
+        color: #fff;
     }
 }
 
-.is-navbar li {
-    margin-left: 0;
+.is-navbar {
+    a {
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+    
+        &:not(.button) {
+            font-weight: 600;
+            line-height: normal;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: $color-link;
+            background: transparent;
+            border-radius: 0px;
+            padding: 16px 27px;
+        }
+    
+        &:hover {
+            background-color: rgba(var(--color-orange), .7);
+            border-bottom-color: var(--color-foreground);
+        }
+    
+        &.is-active {
+            background-color: var(--color-orange);
+        }
+    }
+
+    li {
+        margin-left: 0;
+    }
+}
+
+.is-navbar-right {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    & ul {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
 }
 
 .layoutContainer {
@@ -95,16 +141,16 @@ body {
 
 .box {
     margin-top: 20px;
-    background-color: $background-box;
+    background-color: var(--background-box);
     padding: 20px;
 
     .box {
-        background-color: $background-child-box;
+        background-color: var(--background-child-box);
     }
 }
 
 .extendedFooter {
-    background-color: $background-box;
+    background-color: var(--background-box);
     margin-top: 20px;
     padding: 30px 15px 30px 15px;
 }
@@ -116,36 +162,26 @@ body {
 
 a {
     text-decoration: underline;
+    color: var(--color-link);
 }
 
 .is-muted {
-    color: rgba($color-inverted, .6);
+    color: rgba(var(--color-text), .6);
 }
 .is-muted a,
 a.is-muted {
-    color: rgba($color-inverted, .6);
+    color: rgba(var(--color-link), .6);
     text-decoration: none;
 }
 .is-muted a:hover,
 a.is-muted:hover {
     @include transition;
-    color: $color-inverted;
-}
-
-p,
-blockquote,
-hr,
-pre,
-ol,
-ul,
-dl,
-figure,
-address {
-    margin-bottom: 0;
+    color: rgba(var(--color-link-hover), .6);
 }
 
 .alert {
-    margin-top: 12px;
+    margin-top: 20px;
+    margin-bottom: 0px;
 
     &.is-warning {
         background: $alert-warning-background;
@@ -161,7 +197,7 @@ address {
 }
 
 table > thead > tr {
-    background-color: $navmenu-bg;
+    background-color: var(--navmenu-bg);
 }
 
 table.is-striped {     
@@ -170,12 +206,12 @@ table.is-striped {
     }
 
     tr:nth-child(even) {
-        background-color: $body-background;
+        background-color: var(--body-background);
     }
 }
 
 .main-sidebar {
-    @include make-sidebar(240px);
+    @include make-sidebar(360px);
     margin-right: 16px;
 
     @include for-mobile {
@@ -185,4 +221,66 @@ table.is-striped {
 
 .main-content {
     @include make-content;
+}
+
+ul.is-list, ol.is-list {
+    margin: 0;
+    list-style: none;
+
+    li {
+        display: inline-block;
+    }
+    
+    li:not(:last-child)::after {
+        content: ', ';
+    }
+}
+
+.slider {
+    [type="checkbox"] {
+        display: none;
+
+        &:checked ~ .toggle-label {
+            background: var(--color-orange);
+
+            &::before {
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+        }
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .toggle-label {
+        display: block;
+        width: 40px;
+        height: 20px;
+        position: relative;
+        background: var(--background-box);
+        border-radius: 10px;
+        transition: background 0.2s ease;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px #d1d1d1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+}
+
+blockquote {
+    color: rgba(var(--color-text), .6);
+    font-size: unset;
 }

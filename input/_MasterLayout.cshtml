@@ -1,3 +1,10 @@
+@{
+    var orangeFoxImage = ExecutionContext.GetLink("assets/img/Logo Orange.png", true);
+    var stylesheet = ExecutionContext.GetLink("assets/css/luzfaltex.theme.css", true);
+    var kubeJs = ExecutionContext.GetLink("assets/js/kube.min.js", true);
+    var siteJs = ExecutionContext.GetLink("assets/js/site.js", true);
+}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,23 +14,23 @@
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="@ExecutionContext.GetLink()" />
-    <meta name="og:image" content="@ExecutionContext.GetLink("assets/img/Logo Orange.png", true)">
+    <meta name="og:image" content="@orangeFoxImage">
     <meta name="og:site_name" content="LuzFaltex">
     <meta name="og:title" content="@ViewData[Constants.OpenGraphTitle]">
     <meta name="og:url" content="@ExecutionContext.GetLink(Document, true)">
     <meta name="og:description" content="@ViewData[Constants.OpenGraphDescription]">
 
-    <link rel="stylesheet" href="@ExecutionContext.GetLink("assets/css/luzfaltex.theme.css", true)">
+    <link rel="stylesheet" href="@stylesheet">
 
     <script src="https://kit.fontawesome.com/f1d004b53d.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body data-theme="dark">
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
                 <a class="logo" href="@ExecutionContext.GetLink("index")">
-                    <img src="@ExecutionContext.GetLink("assets/img/Logo Orange.png", true)" alt="LuzFaltex" loading="lazy">
+                    <img src="@orangeFoxImage" alt="LuzFaltex" loading="lazy">
                     <h2>&nbsp;LuzFaltex</h2>
                 </a>
             </div>
@@ -57,6 +64,24 @@
                             </ul>
                         </nav>
                     </div>
+                    <div class="is-navbar-right">
+                        <ul class="is-bar">
+                            <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
+                            <li>
+                                <div class="slider">
+                                    <input type="checkbox" id="themeSwitch" class="slider" checked>
+                                    <label for="themeSwitch" class="toggle-label"></label>
+                                </div>
+                            </li>
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li>
+                                @if (Document[Constants.EditLink] is string editLink)
+                                {
+                                    <a class="is-push-right" href="@editLink" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                                }
+                            </li>
+                        </ul>
+                    </div>             
                 </div>
             </div>
         </div>
@@ -79,6 +104,7 @@
             </div>
         </footer>
     </div>
-    <script src="@ExecutionContext.GetLink("assets/js/kube.min.js", true)"></script>    
+    <script src="@kubeJs"></script>
+    <script src="@siteJs"></script>
 </body>
 </html>
