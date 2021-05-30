@@ -2,37 +2,34 @@
     IDocument docsRoot = OutputPages.Get("docs/index.html");
     IDocument policiesRoot = OutputPages.Get("policies/index.html");
 
-    var docPath = Document.GetLink(true);
-
     var docsIndexPath = ExecutionContext.GetLink("docs/index");
-
-    var policiesOpen = docPath.Contains("policies") ? "open" : "";
-    var docsOpen = docPath.Contains("docs") ? "open" : "";    
+    var cookiesPath = "/policies/privacy#cookies";
 }
-<h3 class="no-anchor">Documents</h3>
-<nav>
-    <ul>
-        <li>
-            <details @docsOpen>
-                <summary>Documentation</summary>
+<div class="box is-hidden-mobile">
+    <h3 class="no-anchor">Documents</h3>
+    <nav>
+        <ul>
+            <li>
+                Documentation
                 <ul>
-                    @foreach (IDocument document in OutputPages.GetChildrenOf(docsRoot).OrderBy(x => x.GetTitle()))
-                    {
-                        <li>@Html.DocumentLink(document, document.GetTitle())</li>
-                    } 
+                        @foreach (IDocument document in OutputPages.GetChildrenOf(docsRoot).OrderBy(x => x.GetTitle()))
+                        {
+                            var title = document.GetString(Constants.StylizedTitle) ?? document.GetTitle();
+                            <li>@Html.DocumentLink(document, title)</li>
+                        } 
                 </ul>
-            </details>
-        </li>
-        <li>
-            <details @policiesOpen>
-                <summary>Policies</summary>
+            </li>
+            <li>
+                Policies
                 <ul>
                     @foreach (IDocument document in OutputPages.GetChildrenOf(policiesRoot).OrderBy(x => x.GetTitle()))
                     {
-                        <li>@Html.DocumentLink(document, document.GetTitle())</li>
-                    }                
-                </ul>
-            </details>            
-        </li>
-    </ul>
-</nav>
+                        var title = document.GetString(Constants.StylizedTitle) ?? document.GetTitle();
+                        <li>@Html.DocumentLink(document, title)</li>
+                    }
+                    <li><a href="@cookiesPath">Cookies</a></li>
+                </ul>         
+            </li>
+        </ul>
+    </nav>
+</div>

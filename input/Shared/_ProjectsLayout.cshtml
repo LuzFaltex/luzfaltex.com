@@ -1,0 +1,15 @@
+@{
+    Layout = "_MasterLayout";
+}
+
+<div class="is-container">
+    <div class="main-sidebar">
+        <partial name="_projectsSidebar" />
+    </div>
+    <div class="main-content">
+        <div class="box">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+<script>

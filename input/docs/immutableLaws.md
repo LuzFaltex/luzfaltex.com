@@ -1,14 +1,17 @@
 ---
 Title: Microsoft's Ten Immutable Laws of Security (Version 2.0)
 OpenGraphDescription: Ten truisms regarding IT security.
+PoliciesEnableHeaderLink: true
+xref: "immutableLaws"
 Layout: _DocsLayout
+Icon: fal fa-gavel
 ---
 
 # Microsoft's Ten Immutable Laws of Security (Version 2.0)
 
-:::alert {.is-focus}
 These laws refer to security vulnerabilities that do not have a fix. It isn't possible for LuzFaltex, or any software vendor for that matter, to "fix" these issues, as they are formed as a consequence of how computers work. Below is the original article from Microsoft, with some formatting modifications to make reading easier.
 
+:::{.alert .is-focus}
 Here at the Microsoft Security Response Center, we investigate thousands of security reports every year. In some cases, we find that a report describes a bona fide security vulnerability resulting from an issue in one of our products; when this happens, we develop a corrective update as quickly as possible. In other cases, the reported problems simply result from a mistake someone made in using the product, or our investigation finds a problem with the product that, while troublesome for users, does not expose them to a security vulnerability. But many fall in between. They are genuine security problems, but the problems don't result from product flaws. Over the years, we've developed a list of issues like these that we call the 10 Immutable Laws of Security.
 
 Don't hold your breath waiting for an update that will protect you from the issues we'll discuss below. It isn't possible for Microsoft—or any software vendor—to "fix" them, because they result from the way computers work. But don't abandon all hope yet. Sound judgment is the key to protecting yourself against these pitfalls, and if you keep them in mind, you can significantly improve the security of your computers, whether they sit on your desk, travel in your pocket, or exist in a virtual cloud. (Throughout this list we’ll use “computer” to mean all of those objects, by the way.)

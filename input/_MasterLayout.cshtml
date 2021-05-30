@@ -1,8 +1,17 @@
 @{
-    var orangeFoxImage = ExecutionContext.GetLink("assets/img/Logo Orange.png", true);
+    var orangeFoxImage = ExecutionContext.GetLink("assets/img/logoOrange.png", true);
     var stylesheet = ExecutionContext.GetLink("assets/css/luzfaltex.theme.css", true);
+    var prismStylesheet = ExecutionContext.GetLink("assets/css/prism.css", true);
     var kubeJs = ExecutionContext.GetLink("assets/js/kube.min.js", true);
+    var prismJs = ExecutionContext.GetLink("assets/js/prism.js", true);
     var siteJs = ExecutionContext.GetLink("assets/js/site.js", true);
+    var kubeAddonsJs = ExecutionContext.GetLink("assets/js/kube.addons.min.js", true);
+
+    var favicon = ExecutionContext.GetLink("assets/img/favicon.svg", true);
+
+    var title = Document.GetString(Constants.StylizedTitle) ?? Document.GetString(Constants.Title);
+    var ogTitle = Document.GetString(Constants.OpenGraphTitle) ?? title;
+    var ogDescription = Document.GetString(Constants.OpenGraphDescription) ?? string.Empty;
 }
 
 <!doctype html>
@@ -10,70 +19,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@ViewData[Constants.Title] -- LuzFaltex</title>
+    <title>@title -- LuzFaltex</title>
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="@ExecutionContext.GetLink()" />
     <meta name="og:image" content="@orangeFoxImage">
     <meta name="og:site_name" content="LuzFaltex">
-    <meta name="og:title" content="@ViewData[Constants.OpenGraphTitle]">
+    <meta name="og:title" content="@ogTitle">
     <meta name="og:url" content="@ExecutionContext.GetLink(Document, true)">
-    <meta name="og:description" content="@ViewData[Constants.OpenGraphDescription]">
+    <meta name="og:description" content="@ogDescription">
+
+    <link rel="icon" href="@favicon">
 
     <link rel="stylesheet" href="@stylesheet">
+    <link rel="stylesheet" href="@prismStylesheet">
 
-    <script src="https://kit.fontawesome.com/f1d004b53d.js" crossorigin="anonymous"></script>
+    <script data-search-pseudo-elements defer src="https://kit.fontawesome.com/f1d004b53d.js" crossorigin="anonymous"></script>
 </head>
 
+@{
+    string indexUrl = ExecutionContext.GetLink("index.html", true);
+    string contribUrl = ExecutionContext.GetLink("contributors.html", true);
+    string projectsUrl = ExecutionContext.GetLink("projects.html", true);
+    string docsUrl = ExecutionContext.GetLink("docs/index.html", true);
+    string policiesUrl = ExecutionContext.GetLink("policies/index.html", true);
+    string contactUrl = ExecutionContext.GetLink("contact/index.html", true);
+    string aboutUsUrl = ExecutionContext.GetLink("about", true);
+
+
+    var docPath = Document.GetLink(true);
+    string indexActive = (docPath == indexUrl || docPath == contribUrl) ? "is-active" : "not-active";
+    string projectsActive = docPath == projectsUrl ? "is-active" : "not-active";
+    string docsActive = (docPath.StartsWith(docsUrl) || docPath.StartsWith(policiesUrl)) ? "is-active" : "not-active";
+    string contactActive = docPath.StartsWith(contactUrl) ? "is-active" : "not-active";
+    string aboutUsActive = docPath == aboutUsUrl ? "is-active" : "not-active";
+}
+
 <body data-theme="dark">
+
+    <div id="mobile-nav" class="is-hidden">
+        <nav>
+            <ul>
+                <li><a class="@indexActive" href="@indexUrl">Home</a></li>
+                <li><a class="@projectsActive" href="@projectsUrl">Projects</a></li>
+                <li><a class="@docsActive" href="@docsUrl">Docs</a></li>
+                <li><a class="@contactActive" href="@contactUrl">Contact</a></li>
+                <li><a class="@indexActive" href="@aboutUsUrl" class="is-separator">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
-                <a class="logo" href="@ExecutionContext.GetLink("index")">
+                <a class="logo" href="@indexUrl">
                     <img src="@orangeFoxImage" alt="LuzFaltex" loading="lazy">
-                    <h2>&nbsp;LuzFaltex</h2>
+                    <h2>LuzFaltex</h2>
                 </a>
             </div>
         </header>
         <div class="navMenu">
             <div class="layoutContainer">
                 <div class="is-navbar-container">
-                    <div class="is-navbar">
+                    <div id="mobile-nav-menu" class="is-navbar is-hidden-mobile">
                         <nav>
-                            <ul>
-                                @{
-                                    string indexUrl = ExecutionContext.GetLink("index.html", true);
-                                    string contribUrl = ExecutionContext.GetLink("contributors.html", true);
-                                    string projectsUrl = ExecutionContext.GetLink("projects/index.html", true);
-                                    string docsUrl = ExecutionContext.GetLink("docs/index.html", true);
-                                    string policiesUrl = ExecutionContext.GetLink("policies/index.html", true);
-                                    string contactUrl = ExecutionContext.GetLink("contact/index.html", true);
-
-
-                                    var docPath = Document.GetLink(true);
-                                    string indexActive = (docPath == indexUrl || docPath == contribUrl) ? "is-active" : "not-active";
-                                    string projectsActive = docPath.StartsWith(@projectsUrl) ? "is-active" : "not-active";
-                                    string docsActive = (docPath.StartsWith(docsUrl) || docPath.StartsWith(policiesUrl)) ? "is-active" : "not-active";
-                                    string contactActive = docPath.StartsWith(contactUrl) ? "is-active" : "not-active";
-                                }
-                                
+                            <ul>                                
                                 <li><a class="@indexActive" href="@indexUrl">Home</a></li>
                                 <li><a class="@projectsActive" href="@projectsUrl">Projects</a></li>
                                 <li><a class="@docsActive" href="@docsUrl">Docs</a></li>
+                                <li><a class="@aboutUsActive" href="@aboutUsUrl">About Us</a></li>
                                 <li><a class="@contactActive" href="@contactUrl">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="is-navbar-right">
+                    <div class="is-navbar-right is-hidden-mobile">
                         <ul class="is-bar">
                             <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
                             <li>
                                 <div class="slider">
-                                    <input type="checkbox" id="themeSwitch" class="slider" checked>
+                                    <input type="checkbox" id="themeSwitch" class="slider">
                                     <label for="themeSwitch" class="toggle-label"></label>
                                 </div>
                             </li>
-                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme" aria-hidden="true"></i></li>    
                             <li>
                                 @if (Document[Constants.EditLink] is string editLink)
                                 {
@@ -81,13 +108,23 @@
                                 }
                             </li>
                         </ul>
-                    </div>             
+                    </div>
+                    <div class="is-navbar is-shown-mobile is-right-mobile is-flex-mobile">
+                        <button data-kube="toggle"
+                                data-target="#mobile-nav-menu"
+                                class="button is-tertiary nav-toggle is-push-right-mobile">
+                            <span class="icon-kube-menu"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <main class="main">
             <div class="layoutContainer">
+                <div class="alert is-warning">
+                    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This site is still under construction! please be patient as we deploy our content.
+                </div>
                 @RenderBody()
             </div>
         </main>
@@ -105,6 +142,8 @@
         </footer>
     </div>
     <script src="@kubeJs"></script>
+    <script src="@kubeAddonsJs"></script>
+    <script src="@prismJs"></script>
     <script src="@siteJs"></script>
 </body>
 </html>

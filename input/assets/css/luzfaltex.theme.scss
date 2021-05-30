@@ -4,6 +4,35 @@
 @import "./mixins";
 @import "./modules";
 
+// Addons
+@import "./addons/upload.scss";
+
+@mixin font-awesome($content, $weight)
+{
+    font-family: "Font Awesome 5 Pro";
+    font-weight: $weight;
+    content: $content; 
+}
+
+@mixin font-awesome-solid($content) {
+     @include font-awesome($content, $fa-solid);
+}
+@mixin font-awesome-regular($content) {
+    @include font-awesome($content, $fa-regular);
+}
+@mixin font-awesome-light($content) {
+    @include font-awesome($content, $fa-light);
+}
+@mixin font-awesome-duotone($content) {
+    @include font-awesome($content, $fa-duotone);
+}
+@mixin font-awesome-brands($content) {
+    @include font-awesome($content, $fa-brands);
+}
+@mixin font-awesome-kits($content) {
+    @include font-awesome($content, $fa-kits);
+}
+
 // Other overrides
 * {
     -webkit-font-smoothing: subpixel antialiased;
@@ -21,11 +50,12 @@
     --background-box: #{$background-box};    
     --background-child-box: #{$background-child-box};
     --header-bg: var(--background-box);
-    --navmenu-bg: #{$navmenu-bg};
+    --background-light: #{$background-light};
     --color-link: #{$color-link};
     --color-link-hover: #{$color-link-hover};
     --color-foreground: #{$color-foreground};
     --color-inverted: #{$color-inverted};
+    --color-button: #{$color-focus};
 }
 
 [data-theme="light"] {
@@ -34,13 +64,16 @@
     --background-box: #eee;
     --background-child-box: #ddd;
     --header-bg: transparent;
-    --navmenu-bg: #666;
+    --background-light: #666;
     --color-link: #222;
+    --color-button: #{$color-button};
 }
 
 body {
     background-color: var(--body-background);
     color: var(--color-text);
+    transition: background-color 1s;
+    transition: color 1s;
 }
 
 .logo {
@@ -57,6 +90,10 @@ body {
     img {
         max-height: 70px;
         max-width: 100%;
+
+        &::after {
+            content: '\a0';
+        }
     }
     h2 {
         font-family: sans-serif;
@@ -64,21 +101,23 @@ body {
 }
 
 .header {
+    @include flex;
     background-color: var(--header-bg);
     padding: 23px;
-    display: flex;
     align-items: center;
     min-height: 120px;
     max-height: 100%;
 }
 
 .navMenu {
-    background-color: var(--navmenu-bg);
-    max-height: 50px;
+    background-color: var(--background-light);
     border-top: 1px solid var(--color-orange);
+    @include not-mobile() {
+        max-height: 50px;
+    }  
 
     .layoutContainer {
-        display: flex;
+        @include flex;
         align-items: center;
     }
 }
@@ -121,7 +160,7 @@ body {
 }
 
 .is-navbar-right {
-    display: flex;
+    @include flex;
     flex: 1;
     align-items: center;
 
@@ -129,8 +168,9 @@ body {
         display: flex;
         align-items: center;
         margin-left: auto;
-    }
+    }   
 }
+
 
 .layoutContainer {
     max-width: 85%;
@@ -146,6 +186,25 @@ body {
 
     .box {
         background-color: var(--background-child-box);
+    }
+}
+
+.is-col {
+    & .is-flex-column,
+    &.box,
+    & a.is-flex-anchor {
+        @include flex;
+        @include flex-items-column;
+        @include flex-items-space-between;
+        gap: 20px;
+    }
+
+    & a.is-flex-anchor {
+        @include flex-items-space-around;
+    }
+    
+    & a.is-flex-anchor {
+        height: 100%;
     }
 }
 
@@ -166,22 +225,27 @@ a {
 }
 
 .is-muted {
-    color: rgba(var(--color-text), .6);
+    color: rgba(var(--color-text), .1);
 }
 .is-muted a,
 a.is-muted {
-    color: rgba(var(--color-link), .6);
+    color: rgba(var(--color-link), .1);
     text-decoration: none;
 }
 .is-muted a:hover,
 a.is-muted:hover {
     @include transition;
-    color: rgba(var(--color-link-hover), .6);
+    color: rgba(var(--color-link-hover), .1);
 }
 
 .alert {
-    margin-top: 20px;
-    margin-bottom: 0px;
+
+    margin-bottom: 20px;
+
+    .layoutContainer > & {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
 
     &.is-warning {
         background: $alert-warning-background;
@@ -197,7 +261,7 @@ a.is-muted:hover {
 }
 
 table > thead > tr {
-    background-color: var(--navmenu-bg);
+    background-color: var(--background-light);
 }
 
 table.is-striped {     
@@ -283,4 +347,210 @@ ul.is-list, ol.is-list {
 blockquote {
     color: rgba(var(--color-text), .6);
     font-size: unset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    &:target {
+        -moz-transition: color .3s ease-in;
+        -o-transition: color .3s ease-in;
+        -webkit-transition: color .3s ease-in;
+        transition: color .3s ease-in;
+        color: var(--color-orange)
+    }
+}
+
+address {
+    margin-bottom: unset;
+}
+
+.is-image-download {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+
+    svg {
+        color: transparent;
+        vertical-align: top;
+        font-size: 36px;
+    }
+    
+    &:hover > svg{
+        color: unset;
+    } 
+}
+
+hr {
+    height: .25em;
+    padding: 0;
+    margin: 24px 0;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(var(--color-text), 0.1);
+}
+
+.external {
+    &::after {
+        @include font-awesome-solid("\f08e");
+        display: none;
+    }
+    &>svg {
+        margin-left: 0.25em;
+    }
+}
+
+.button {
+    &.is-secondary {
+        color: var(--color-button);
+        border-color: var(--color-button);
+    }
+    &.is-tertiary {
+        color: var(--color-button);
+        :hover {
+            color: var(--color-text);
+        }
+    }
+}
+label, legend {
+    color: var(--color-text);
+}
+[data-theme="dark"] select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="12" viewBox="0 0 9 12"><path fill="rgb(238, 238, 238)" d="M0.722,4.823L-0.01,4.1,4.134-.01,4.866,0.716Zm7.555,0L9.01,4.1,4.866-.01l-0.732.726ZM0.722,7.177L-0.01,7.9,4.134,12.01l0.732-.726Zm7.555,0L9.01,7.9,4.866,12.01l-0.732-.726Z"/></svg>');
+}
+input, select, textarea {
+    color: var(--color-text);
+    background-color: var(--background-light);
+    &:hover, &:active, &:focus {
+        background-color: var(--background-light);
+    }
+    &::placeholder {        
+        color: var(--color-text);
+        opacity: 0.5;
+    }
+}
+fieldset {
+    border-color: rgba(var(--color-text), 0.1);
+}
+
+.is-right-mobile {
+    @include for-mobile() {
+        margin-left: auto;
+    }
+}
+
+.is-flex-mobile {
+    @include for-mobile() {
+        @include flex;
+    }
+}
+
+img.is-round-image {
+    border-radius: 50%;
+}
+
+.bootstrapWrapper {
+    @import 'bootstrap/bootstrap.scss';
+
+    .choices[data-type*="select-one"] .choices__button {
+        background-image: none;
+        &::after {
+            display: none;
+            color: var(--color-text);
+            @include font-awesome-solid("\f00d");
+        }
+    }
+    
+
+    .form-control, .choices[data-type*="select-one"] {
+        color: var(--color-text);
+        background-color: var(--background-light);
+        border: $input-default-border-width $input-default-border-style $input-default-border-color;
+        border-radius: $input-default-border-radius;
+        opacity: 100%;
+        &:hover {
+            background-color: var(--background-light);
+            border: $input-hover-border-width $input-hover-border-style $input-hover-border-color;
+            box-shadow: $input-hover-box-shadow;
+        }
+        &:focus {
+            color: var(--color-text);
+            background-color: var(--background-light);
+            border: $input-focus-border-width $input-focus-border-style $input-focus-border-color;
+            box-shadow: $input-focus-box-shadow;
+        }
+        &::placeholder {
+            color: var(--color-text);
+            opacity: 0.5;
+        }
+
+        span {
+            color: inherit;
+        }
+    }
+
+    .choices__item {
+        color: var(--color-text);
+        background-color: var(--background-light);
+        border: none;
+    }
+
+    .choices .dropdown span {
+        padding: 0;
+    }
+
+    .choices__input {
+        display: none !important;
+    }
+
+    .choices__list--dropdown {
+        z-index: 1000;
+        margin-top: 2px;
+        border-radius: 4px;
+
+        &,
+        & .choices__item--selectable.is-highlighted {
+            background-color: var(--background-light);
+        }
+    }
+
+    fieldset {
+        border: revert;
+        border-radius: 4px;
+        padding: 32px;
+
+        legend {
+            font-size: 1em;
+            font-weight: bold;
+            padding: 0 1rem;
+            margin-left: -1rem;
+            top: 2px;
+            position: relative;
+            line-height: 1.5;
+            width: auto;
+        }
+    }
+
+    .form-section {
+        .card {
+            background-color: unset;
+            border: 0 !important;
+
+            &.mb2 {
+                margin-bottom: 0px !important;
+            }
+        }
+        .card-header {
+            padding: 0px;
+            border: 0px;
+            background-color: inherit;
+        }
+        .card-body {
+            padding: 0;
+        }
+    }
+
+    .list-group-item {
+        .list-group-header {
+            background-color: var(--background-child-box);
+        }
+        background-color: var(--background-light);
+    }
 }

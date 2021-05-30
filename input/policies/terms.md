@@ -1,7 +1,10 @@
 ---
 Title: Terms and Conditions of Service
 OpenGraphDescription: Legal text for TACOS
+PoliciesEnableHeaderLink: true
+xref: terms
 Layout: _DocsLayout
+Icon: fal fa-file-signature
 ---
 
 # Terms and Conditions of Service
@@ -12,7 +15,7 @@ The following Terms and Conditions of Service ("TACOS") govern all use of the Lu
 
 Please read these Agreements carefully before accessing or using the Website. By accessing or using any part of the Projects and/or uploading or attempting to upload any Content (as defined in [Definitions](#definitions)), you agree to become bound by the Agreements hereafter perpetually and indefinitely, regardless of whether you continue to remain a registered user or not, unless and until terminated, in whole or in part, by LuzFaltex on notice to you. If you do not agree to all the terms and conditions of this agreement, then you may not access any of the Projects. If these TACOS are considered an offer by LuzFaltex, acceptance is expressly limited to these terms. The Projects are available only to individuals who are at least 13 years old, or if younger than 13, with the appropriate permission and consents from your parent or legal guardian.
 
-We may change these TACOS or make new TACOS at any time. Although we will attempt to notify you through reasonable means when the TACOS change, we are under no obligation to do so. The newest TACOS will always be available at our documentation pages under [Terms and Conditions of Service](xref:terms-and-conditions-of-service). A history of all of the changes made to these TACOS will be available on [GitHub](<?! EditLink /?>).
+We may change these TACOS or make new TACOS at any time. Although we will attempt to notify you through reasonable means when the TACOS change, we are under no obligation to do so. The newest TACOS will always be available at our documentation pages under [Terms and Conditions of Service](xref:terms). A history of all of the changes made to these TACOS will be available on [GitHub](<?! EditLink /?>).
 
 ## Definitions
 
@@ -73,25 +76,7 @@ You hereby release LuzFaltex of any and all claims of any rights, encumbrances, 
 
 ## Copyright
 
-If you are a copyright owner or agent thereof and believe that any Content infringes upon your copyrights, you may submit a notification pursuant to the Digital Millennium Copyright Act ("DMCA") by providing our Copyright Agent with the following information in writing (see 17 U.S.C. 512(c)(3) for further detail):
-
-* A physical or electronic signature of the owner or person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;
-* Identification of the copyrighted work claimed to have been infringed, or if multiple copyrighted works are covered by a single notification, a representative list of such works;
-* Identification of the Content that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit LuzFaltex to locate the material;
-* Information reasonably sufficient to permit LuzFaltex to contact you, such as an address, telephone number, and, if available, an electronic mail;
-* A statement that you have good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and
-* A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
-
-You may direct copyright infringement claims to our DMCA Agent at [copyright@luzfaltex.com](mailto:copyright@luzfaltex.com).
-
-For clarity, only DMCA notices should go to the Copyright Agent; any other feedback, comments, requests for technical support, and other communications should be directed to a Moderator. You acknowledge that if you fail to comply with all of the requirements of this Section, your DMCA notice may not be valid. Upon receipt of a copyright infringement notification, LuzFaltex will inform the user who submitted the Content identified within the notification and remove or disable access to the allegedly infringed Content. For avoidance of doubt, the user who submitted the Content assumes all responsibility for any alleged infringement (see the [Ownership](#ownership) section). If you believe that your Content that was removed (or to which access was disabled) is not infringing, or that you have the authorization from the copyright owner, the copyright owner's agent, or pursuant to the law, to post and use the material in your Content, you may send a counter-notice containing the following information to the Copyright Agent:
-
-* Your physical or electronic signature;
-* Identification of the Content that has been removed or to which access has been disabled and the location at which the user content appeared before it was removed or disabled;
-* A statement that you have a good faith belief that the Content was removed or disabled as a result of mistake or a misidentification of the Content; and
-* Your name, address, telephone number, and email address, a statement that you consent to the jurisdiction of the federal court in Kansas City, Kansas, and a statement that you will accept service of process from the person who provided the notification of the alleged infringement.
-
-If a counter-notice is received by the Copyright Agent, LuzFaltex may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed Content or cease disabling it in 10 business days. Unless the copyright owner files an action seeking a court order against the Content provider, member, or user, the removed content may be replaced, or access to it restored, in 10 to 14 business days or more after receipt of the counter-notice, at LuzFaltex's sole discretion.
+Please see the [DMCA Takedown Policy](xref:dmca).
 
 ## Final Clause
 

@@ -1,6 +1,48 @@
+---
+Title: Documentation
+---
 @{
-    ViewData["Title"] = "Documentation";
-    Layout = "_DocsLayout";
+    IDocument docsRoot = OutputPages.Get("docs/index.html");
+    IDocument policiesRoot = OutputPages.Get("policies/index.html");
 }
 
 <h1>Documentation</h1>
+<div class="is-row">
+    @{
+        var docs = OutputPages.GetChildrenOf(docsRoot)
+            .Append(OutputPages.Get("docs/dmca/counter-notice.html"))
+            .Append(OutputPages.Get("docs/dmca/takedown-notice.html"));
+
+        foreach (IDocument document in docs.OrderBy(x => x.GetTitle()))
+        {
+            var title = document.GetString(Constants.StylizedTitle) ?? document.GetTitle();
+            var description = document.GetString(Constants.OpenGraphDescription);
+            var icon = document.GetString(Constants.Icon);
+
+            <div class="is-col">
+                <a class="button is-secondary is-text-center is-flex-anchor" href="@document.GetLink()">
+                    <i class="@document.GetString(Constants.Icon) fa-4x"></i>
+                    <h2>@document.GetTitle()</h2>
+                    <h4>@(title.Equals(description) ? Constants.NonBreakingSpace : description)</h4>
+                </a>
+            </div>
+        }
+    }
+</div>
+<h1>Policies</h1>
+<div class="is-row">
+    @foreach (IDocument document in OutputPages.GetChildrenOf(policiesRoot).OrderBy(x => x.GetTitle()))
+    {
+        var title = document.GetString(Constants.StylizedTitle) ?? document.GetTitle();
+        var description = document.GetString(Constants.OpenGraphDescription);
+        var icon = document.GetString(Constants.Icon);
+
+        <div class="is-col">
+            <a class="button is-secondary is-text-center is-flex-anchor" href="@document.GetLink()">
+                <i class="@document.GetString(Constants.Icon) fa-4x"></i>
+                <h2>@document.GetTitle()</h2>
+                <h4>@(title.Equals(description) ? Constants.NonBreakingSpace : description)</h4>
+            </a>
+        </div>
+    }
+</div>

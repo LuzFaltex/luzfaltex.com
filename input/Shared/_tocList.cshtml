@@ -1,35 +1,66 @@
+@using Statiq.Html;
 @{
-    var headings = Document.GetDocumentList(Statiq.Html.HtmlKeys.Headings);
+    var topLevelHeadings = Document.GetDocumentList(HtmlKeys.Headings).Where(x => x.GetInt(HtmlKeys.Level) == 1);
+    var debug = false;
 
-    if (headings.Any())
+    async Task PrintElementAndChildren(IDocument heading) {
+        var headingId = heading.GetString(HtmlKeys.HeadingId);
+        <li><a href="#@headingId">@(await heading.GetContentStringAsync())</a></li>
+        
+        var children = heading.GetChildren();
+        if (children.Any())
+        {
+            <ul>
+                @foreach (var child in children)
+                {
+                    await PrintElementAndChildren(child);
+                }
+            </ul>
+        }
+    }
+
+    if (topLevelHeadings.Any(x => x.GetChildren().Any()))
     {
-        <div class="box">
+        <div class="box is-hidden-mobile">
             <h3 class="no-anchor">On This Page</h3>
-            
+            <ul>
+                @foreach (var titleHeading in topLevelHeadings)
+                {
+                    var sectionHeadings = titleHeading.GetChildren();
+                    foreach(var sectionHeading in sectionHeadings)
+                    {
+                        await PrintElementAndChildren(sectionHeading);
+                    }
+                }
+            </ul>
         </div>
     }
-    <div class="box">
-        <div class="label is-warning">Debug Panel</div>
-        <p>Heading count: @headings.Count</p>
-        <ul>
-            @foreach (IDocument heading in headings)
-            {
-                <li>@(await heading.GetContentStringAsync())</li>
-                <ul>
-                    @{
-                        var documentListCount = heading.GetDocumentList(Statiq.Html.HtmlKeys.Headings).Count;
-                        var headingId = heading.GetString("HeadingId");
-                        var childCount = heading.GetChildren().Count;
-                        var level = heading.GetString("Level");
-                        var childMetadata = heading.GetDocumentList("Children");
-                        <li>Heading ID: @headingId</li>
-                        <li>Level: @level</li>
-                        <li>Document List Count: @documentListCount</li>
-                        <li>Child Count: @childCount</li>
-                        <li>Child Metadata Count: @childMetadata.Count</li>
-                    }
-                </ul>
-            }
-        </ul>
-    </div>
+    @if (debug)
+    {
+        var headings = Document.GetDocumentList(HtmlKeys.Headings);
+        <div class="box">
+            <div class="label is-warning">Debug Panel</div>
+            <p>Heading count: @headings.Count</p>
+            <ul>
+                @foreach (IDocument heading in headings)
+                {
+                    <li>@(await heading.GetContentStringAsync())</li>
+                    <ul>
+                        @{
+                            var documentListCount = heading.GetDocumentList(HtmlKeys.Headings).Count;
+                            var headingId = heading.GetString(HtmlKeys.HeadingId);
+                            var childCount = heading.GetChildren().Count;
+                            var level = heading.GetString(HtmlKeys.Level);
+                            var childMetadata = heading.GetDocumentList(Keys.Children);
+                            <li>Heading ID: @headingId</li>
+                            <li>Level: @level</li>
+                            <li>Document List Count: @documentListCount</li>
+                            <li>Child Count: @childCount</li>
+                            <li>Child Metadata Count: @childMetadata.Count</li>
+                        }
+                    </ul>
+                }
+            </ul>
+        </div>
+    }
 }

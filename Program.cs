@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Linq;
 using Statiq.App;
 using Statiq.Common;
-using Statiq.Markdown;
 using Statiq.Web;
 
 namespace LuzFaltex.Web
 {
     public class Program
     {
-        public const string GitHubToken = "GITHUB_TOKEN";
         public static async Task<int> Main(string[] args)
         {
             return await Bootstrapper
@@ -17,10 +16,11 @@ namespace LuzFaltex.Web
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                settings[WebKeys.GitHubToken] = Config.FromSetting<string>(GitHubToken);
-                // settings[WebKeys.GitHubToken] = Environment.GetEnvironmentVariable(GitHubToken);
+                settings[Keys.Host] = args.Contains("preview") ? string.Empty : "www.luzfaltex.com";
             })
-            .AddShortcode(Constants.EditLink, (content, parameters, document, context) => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.github.io")
+            .AddShortcode(Constants.EditLink, 
+                (content, parameters, document, context) 
+                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.github.io")
             .RunAsync();
         }
     }

@@ -1,16 +1,51 @@
-@{
-    ViewData[Constants.Title] = "Logos";
-    ViewData[Constants.OpenGraphTitle] = ViewData[Constants.Title];
-    ViewData[Constants.OpenGraphDescription] = "Our logos and other Trade Marks";
-    Layout = "_DocsLayout";
-}
-
+---
+Title: Logos
+OpenGraphDescription: Our logos and other Trade Marks
+PoliciesEnableHeaderLink: false
+Icon: fab fa-font-awesome-flag
+---
 <h1>LuzFaltex Logos and Usage</h1>
 <p>Below you will find a way to access our trademarks and other logos. Be sure to read the terms before downloading or using any of our trademarks.</p>
 
-<div class="is-row">
-    <div class="is-column">
+@{
+    var betaLogo = ExecutionContext.GetLink("assets/img/logoBeta.png");
+    var rrLogo = ExecutionContext.GetLink("assets/img/logoRavenRock.png");
+    var mcLogo = ExecutionContext.GetLink("assets/img/logoOrange.png"); // Orange logo is used temporarily
+    var lfLogoZip = ExecutionContext.GetLink("assets/static/logos.zip");
+    var rrLogoZip = ""; // Still need to package
+    var mcLogoZip = ""; // Need to commission and package
+}
 
+<div class="is-row">
+    <div class="is-col">
+        <div class="box">
+            <a class="is-image-download" href="@lfLogoZip" download aria-label="download" title="download">
+                <img src="@betaLogo" style="max-height: 400px;">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <hr />
+            <p class="is-text-center">LuzFaltex, LLC.</p>
+        </div>
+    </div>
+    <div class="is-col">
+        <div class="box">
+            <a class="is-image-download" href="#" download aria-label="download" title="download">
+                <img src="@rrLogo" style="max-height: 400px;">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <hr />
+            <p class="is-text-center">RavenRock RP</p>
+        </div>
+    </div>
+    <div class="is-col">
+        <div class="box">
+            <a class="is-image-download" href="#" download aria-label="download" title="download">
+                <img src="@mcLogo" style="max-height: 400px;">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <hr />
+            <p class="is-text-center">RavenRock RP</p>
+        </div>
     </div>
 </div>
 
@@ -37,7 +72,7 @@
 </div>
 <div class="is-row">
     <div class="is-col">
-        <h2>Please contact us</h2>
+        <h2>Please <a href="xref:contact-support">contact us</a></h2>
         <ul>
             <li>If you want to use artwork not included in this repository</li>
             <li>If you want to use these images in a video/mainstream media</li>
@@ -51,10 +86,8 @@
 <div class="is-row">
     <div class="is-col">
         <h2>Legal</h2>
-        <p>
-            LuzFaltex&reg;, the LuzFaltex&reg; logo design, the LuzFaltex Fox&reg;, and the LuzFaltex Fox&reg; logo design are exclusvie trademarks registered in the United States by LuzFaltex, LLC.
-        </p>
-        <p>The Sleeping Fox design is exclusive property of LuzFaltex, LLC. and has been federally registered with the United States Copyright OFfice. All rights reserved.</p>
+        <p>LuzFaltex&reg;, the LuzFaltex&reg; logo design, the LuzFaltex Fox&reg;, and the LuzFaltex Fox&reg; logo design are exclusive trademarks registered in the United States by LuzFaltex, LLC.</p>
+        <p>The Sleeping Fox design is exclusive property of LuzFaltex, LLC. and has been federally registered with the United States Copyright Office. All rights reserved.</p>
         <p>No adaption or use of any kind of our registered trademarks or copyrights, or any other contents of this website, is allowed without the express written permission of LuzFaltex, LLC.</p>
     </div>
 </div>
