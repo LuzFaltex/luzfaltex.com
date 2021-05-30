@@ -1,8 +1,8 @@
 @import "./vars";
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans&display=swap');
 
 // Font Family
-$font-family-text: -apple-system, BlinkMacSystemFont, "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-text: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // $body-background: #14151b;
 // $color-text: #c4c4c4;
@@ -13,8 +13,8 @@ $color-text: #eee;
 $color-orange: #ff4700;    
 $background-box: #161b22;    
 $background-child-box: #22232b;
+$background-light: #32343b;
 $header-bg: $background-box;
-$navmenu-bg: #32343b;
 $color-link: #fff;
 $color-link-hover: $color-orange;
 $color-foreground: #fff;
@@ -42,3 +42,11 @@ $color-focus: #49aaff;
 $alert-focus-background: rgba($color-focus, .1);
 $alert-focus-border-color: rgba($color-focus, .7);
 $alert-focus-link-color-hover: $color-link;
+
+// Font Awesome Styles
+$fa-solid: 900;
+$fa-regular: 400;
+$fa-light: 300;
+$fa-duotone: $fa-solid;
+$fa-brands: $fa-regular;
+$fa-kits: $fa-regular;

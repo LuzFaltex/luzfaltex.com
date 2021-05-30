@@ -1,28 +1,32 @@
+---
+Title: Home
+---
 @{
-    ViewData[Constants.Title] = "Home";
-    ViewData[Constants.OpenGraphTitle] = ViewData[Constants.Title];
-    ViewData[Constants.OpenGraphDescription] = "Redefining Roleplay";
+    var logoBeta = ExecutionContext.GetLink("assets/img/logoBeta.png", true);
+    var logoFavicon = ExecutionContext.GetLink("assets/img/favicon.svg",true);
+    var privacy = ExecutionContext.GetLink("policies/privacy", true);
+    var projects = @ExecutionContext.GetLink("projects", true);
 }
 
 <div class="box">
     <h1 class="is-text-center">
         Redefining Roleplay
     </h1>
-    <div class="is-container is-items-middle is-inset-top-120">
+    <div class="is-container is-items-middle is-inset-top-60">
         <div class="is-text-center is-50">
-            <img src="assets/img/Logo Beta.png" alt="LuzFaltex" loading="lazy">
+            <img src="@logoBeta" alt="LuzFaltex" loading="lazy">
         </div>
         <div class="is-text-center is-50">
             <h4>Hello! We are LuzFaltex (ˈluːz ˈfɔl ˈtɛks).</h4>
             <p>We are an indie technology company founded in 2014 dedicated to bringing you the best roleplay experience without compromizing your privacy. Specializing in game development and community management, we aim to provide open source tools and training for community managers to enable them to create their own thriving roleplay communities.</p>
+            <a href="xref:about">Read more about us.</a>
         </div>
     </div>
     <div class="is-row is-inset-top-24">
         <div class="is-col box is-text-center">
             <h1>Privacy</h1>
             <p>Privacy is a core value across all of our projects. We will never sell your information and we will never give it out without your permission. Also, none of our ads have any trackers and are served only by us.</p>
-            <div class="is-inset-top-24"><!-- I'm a spacer --></div>
-            <a href="@ExecutionContext.GetLink("policies/privacy")" class="button">
+            <a href="@privacy" class="button is-50 is-center">
                 <div>
                     View our Privacy Policy<br />
                     <div class="is-small">(no legalese, we promise)</div>
@@ -31,18 +35,13 @@
         </div>
         <div class="is-col box is-text-center">
             <h1>Open Source</h1>
-            <p>Many of our projects and even <a href="https://github.com/LuzFaltex/luzfaltex.github.io" rel="noopener" target="_blank">this website</a> are open source! We encourage community contributions and public reviews of our code. See something you want to change? Let us know or contribute a change yourself!</p>
-            <div class="is-inset-top-24"><!-- I'm a spacer --></div>
-            <a href="https://github.com/LuzFaltex/" class="button" rel="noopener" target="_blank">Contribute</a>
+            <p>Many of our projects and even <a href="https://github.com/LuzFaltex/luzfaltex.github.io" is-external="true">this website</a> are open source! We encourage community contributions and public reviews of our code. See something you want to change? Let us know or contribute a change yourself!</p>
+            <a href="https://github.com/LuzFaltex/" class="button is-50 is-center" is-external="true" show-icon="false">Contribute</a>
         </div>
         <div class="is-col box is-text-center">
             <h1>Community</h1>
             <p>We support and empower communities by providing community management training, writing workshops for lore, and scalable application suites for managing your community. We're here to help!</p>
-            <div class="is-inset-top-24"><!-- I'm a spacer --></div>
-            <div class="is-items-bottom">
-            <a href="@ExecutionContext.GetLink("projects/index")" class="button">See our Projects</a>
-            </div>
+            <a href="@projects" class="button is-50 is-center">See our Projects</a>
         </div>
     </div>       
 </div>
-

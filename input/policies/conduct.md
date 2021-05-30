@@ -1,7 +1,9 @@
 ---
 Title: Code of Conduct
 OpenGraphDescription: Community Conduct Rules
+PoliciesEnableHeaderLink: true
 Layout: _DocsLayout
+Icon: fal fa-user-chart
 ---
 
 # LuzFaltex Code of Conduct
@@ -25,7 +27,7 @@ Our communities strive to:
 
 ## Scope
 
-This code applies to all LuzFaltex communities, sites, and services as per your agreement with the [TACOS](./tacos-overview.md). This code also applies in public spaces when an individual is representing a project or its community. Examples include an official project e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by the project itself.
+This code applies to all LuzFaltex communities, sites, and services as per your agreement with the [TACOS](xref:terms). This code also applies in public spaces when an individual is representing a project or its community. Examples include an official project e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by the project itself.
 
 ## Reporting Code of Conduct Issues
 
@@ -58,4 +60,4 @@ Beyond the norms and values set out by the Code of Conduct, moderators operate u
 * **Equality** - Contribution value or status in the community are not relevant to the review. Key people do not have more rights (either to abuse or to be protected from abuse) than others in the community.
 * **Independence** - Moderators must act and be seen to act as a neutral party.
 
-*This code of conduct is based on the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+*This code of conduct is based on the <a href="https://opensource.microsoft.com/codeofconduct/" is-external="true">Microsoft Open Source Code of Conduct</a>.

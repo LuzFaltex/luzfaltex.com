@@ -1,0 +1,51 @@
+@{
+    Layout = "_MasterLayout";
+}
+<script src="https://unpkg.com/formiojs@latest/dist/formio.full.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/formiojs@latest/dist/formio.full.min.css">
+
+<div class="is-container">
+    <div class="main-sidebar">
+        <partial name="_contactSidebar" />
+    </div>
+    <div class="main-content">
+        <div class="box">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+<script>
+var sectionSelectors = document.querySelectorAll("[data-role='section-selector']");
+
+sectionSelectors.forEach(function(item) {
+    item.addEventListener("change", sectionSelectorChanged);
+});
+
+function sectionSelectorChanged() {
+    var value = this.value;
+    var group = this.dataset.group;
+    console.log(group);
+
+    var sections = document.querySelectorAll("[data-role='section'][data-group='" + group + "']");
+
+    // Hide all sections
+    sections.forEach( function(item) {
+        item.hidden = true;
+    });
+    
+    // Unhide selected section
+    const queryString = "[data-authorized='" + value + "'][data-group='" + group + "']";
+    var selectedSection = document.querySelector(queryString);
+    console.log(selectedSection);
+    if (selectedSection !== null) {
+        selectedSection.hidden = false;
+    }
+
+    // Unhide !none section, if necessary
+    const notNoneQueryString = "[data-authorized='all'][data-group='" + group + "']";
+    var notNoneSection = document.querySelector(notNoneQueryString);
+    if (notNoneSection !== null) {
+        notNoneSection.hidden = false;
+    }
+}
+</script>

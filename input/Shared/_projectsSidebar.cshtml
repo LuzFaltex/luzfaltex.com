@@ -1,10 +1,32 @@
 @{
-    var docPath = Document.GetLink(true);
+    // IDocument contactRoot = OutputPages.Get("projects/index.html");
+    var indexLink = ExecutionContext.GetLink("projects");
+
+    var fotcLink = ExecutionContext.GetLink("projects/fall-of-the-citadel");
+    var mageChatLink = ExecutionContext.GetLink("projects/mage-chat");
+    var ravenRockLink = ExecutionContext.GetLink("projects/ravenRock-rp");
 }
-<h3>Projects</h3>
-<nav>
-    <ul>
-        <li>RavenRock RP</li>
-        <li>Citadel Engine</li>
-    </ul>
-</nav>
+
+<div class="box is-hidden-mobile">
+    <h3><a href="@indexLink">Projects</a></h3>
+    <nav>
+        <ul>
+            <li><a href="@fotcLink">Fall of the Citadel</a></li>
+            <li><a href="@mageChatLink">Mage.chat</a></li>
+            <li><a href="@ravenRockLink">RavenRock RP</a></li>
+            @*
+            @foreach (IDocument document in OutputPages.GetChildrenOf(contactRoot).OrderBy(x => x.GetTitle()))
+            {
+                // var title = document.GetString(Constants.Title) ?? document.GetTitle();
+                var title = @ViewData[Constants.Title];
+                <li>@Html.DocumentLink(document)</li>
+                <ul>
+                    <li>ViewData[Title]: @title</li>
+                    <li>document.GetString(Keys.Title): @document.GetString(Keys.Title)</li>
+                    <li>document.Source.GetTitle(): @document.Source.GetTitle()</li>
+                </ul>
+            }
+            *@
+        </ul>
+    </nav>
+</div>

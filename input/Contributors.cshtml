@@ -1,9 +1,7 @@
-@{
-    ViewData[Constants.Title] = "Contributors";
-    ViewData[Constants.OpenGraphTitle] = ViewData[Constants.Title];
-    ViewData[Constants.OpenGraphDescription] = "Users who have contributed to the website.";
-}
-
+---
+Title: Contributors
+OpenGraphDescription: Users who have contributed to the website.
+---
 <div class="box">
 
     <div class="is-row">
@@ -12,23 +10,42 @@
             such as modifying _Layout.cshtml or adding functionality to the site.*@
             <h3>Site Structure</h3>
             <ul class="is-list">
-                <li><github name="Foxtrek_64" /></li>
+                <li><github name="Foxtrek64" /></li>
             </ul>
         </div>
         <div class="is-col">
             @*Add yourself here if you contributed to any project pages.*@
             <h3>Projects</h3>
             <ul class="is-list">
-                <li><github name="Foxtrek_64" /></li>
+                <li><github name="Foxtrek64" /></li>
             </ul>
         </div>
         <div class="is-col">
             @*Add yourself here if you contributed to any documentation pages, including the legal docs.*@
             <h3>Docs</h3>
             <ul class="is-list">
-                <li><github name="Foxtrek_64" /></li>
+                <li><github name="Foxtrek64" /></li>
             </ul>
         </div>
-    </div>    
+    </div>
+
+    <div class="is-row">
+        <div class="is-col">
+            <pre><code class="language-xml-diff">
+                <websafe>
+                    --- a/LuzFaltexWeb.csproj
+                    +++ b/LuzFaltexWeb.csproj
+                    @@ -3,6 +3,7 @@
+                    <PropertyGroup>
+                        <OutputType>Exe</OutputType>
+                        <TargetFramework>netcoreapp3.1</TargetFramework>
+                    +    <AssemblyName>LuzFaltex.Web</AssemblyName>
+                    </PropertyGroup>
+
+                    <ItemGroup>
+                </websafe>
+            </code></pre>
+        </div>
+    </div>  
 
 </div>

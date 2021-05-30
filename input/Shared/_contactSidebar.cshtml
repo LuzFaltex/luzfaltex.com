@@ -1,0 +1,20 @@
+@{
+    IDocument contactRoot = OutputPages.Get("contact/index.html");
+    var indexLink = ExecutionContext.GetLink("contact");
+}
+
+<div class="box is-hidden-mobile">
+    <h3>Forms</h3>
+    <nav>
+        <ul>
+            <li>
+                <a href="@indexLink">Contact - About</a>
+            </li>
+            @foreach (IDocument document in OutputPages.GetChildrenOf(contactRoot).OrderBy(x => x.GetTitle()))
+            {
+                var title = document.GetString(Constants.StylizedTitle) ?? document.GetTitle();
+                <li>@Html.DocumentLink(document, title)</li>
+            } 
+        </ul>
+    </nav>
+</div>

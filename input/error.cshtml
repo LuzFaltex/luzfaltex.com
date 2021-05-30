@@ -1,0 +1,19 @@
+---
+Title: error
+---
+<div class="is-container is-outset-24">
+    <noscript>An error has occurred. Please look at your url parameters to find the error code, then go to <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/" target="_blank" rel="noopener">developer.mozilla.org</a> for more info.</noscript>
+    <a id="infoLink" class="is-center" target="_blank" rel="noopener" title="More info..."><img id="errorImage"></a>
+</div>
+
+<script>
+    const error = new URLSearchParams(window.location.search).get('error') ?? '404';
+    const errorUrl = "https://http.cat/" + error;
+    const infoUrl = "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/" + error;
+
+    var img = document.getElementById("errorImage");
+    img.src = errorUrl;
+
+    var link = document.getElementById("infoLink");
+    link.href = infoUrl;
+</script>

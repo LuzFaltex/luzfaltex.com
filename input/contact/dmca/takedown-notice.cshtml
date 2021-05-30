@@ -1,0 +1,32 @@
+---
+Title: DMCA Takedown Notice
+xref: dmca-takedown
+---
+@{
+    var formLink = "https://form-io.caprover.luzfaltex.com/dmca-notice";
+    var submitComplaint = Context.GetLink("/docs/dmca/takedown-notice", true) + "#how-to-submit-your-complaint";
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Formio.createForm(document.getElementById('formio'), '@formLink')
+            .then(function(formio) {
+                formio.on('submitDone', function(submission) {
+                    window.location = '/contact/submitted'
+                });
+            }
+        );
+    });
+</script>
+
+<h1>DMCA takedown notice</h1>
+<p>If you believe someone is using your copyrighted content in an unauthorized way on a LuzFaltex Project, please fill out the form below to submit a DMCA takedown notice to request that the content be changed or removed. Before you begin, please read <a href="xref:submitDMCATakedown">LuzFaltex's DMCA Takedown Policy</a>.</p>
+<p>In order to prevent unnecessary processing delays, please note the following before submitting your notice:</p>
+<ul>
+    <li>Don't send duplicate notices.</li>
+    <li>If you believe multiple files or posts are infringing in the same copyrighted content, include links to those files or repositories in a single notice instead of sending multiple notices.</li>
+    <li>Only one point of contact from your organization should submit the notice.</li>
+    <li>Our DMCA takedown process is intended only for copyrighted content. If the content you're reporting is in violation of our terms of service, please use the <a href="xref:contact-support">abuse form</a>. If the content violates a trademark you own, please review our <a href="xref:trademark">Trademark Policy</a>.</li>
+</ul>
+<p>If you have attachements or would prefer to send your notice via email or snail mail, please follow <a href="@submitComplaint">these instructions</a> for manually submitting your complaint.</p>
+<div id="formio" class="bootstrapWrapper"></div>
