@@ -1,12 +1,12 @@
 # This workflow will compile the site and push the compiled HTML to NearlyFreeSpeech.net using an SSH key.
 
-name: NFSN
+name: Production
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
       - name: build site
         run: dotnet run -- deploy
 
-      # Push site to NFSN
+      # Push site to S3
       - name: deploy site
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
