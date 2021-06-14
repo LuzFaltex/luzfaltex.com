@@ -2,9 +2,24 @@ document.getElementById('themeSwitch').addEventListener('change', function (even
     changeTheme(event.target.checked);
 });
 
+document.getElementById('consentAllow').addEventListener('click', function (event) {
+    setCookie('cookieConsent', true);
+    $K.api('alert.cookieBanner.close');
+});
+
+document.getElementById('consentDeny').addEventListener('click', function (event) {
+    setCookie('cookieConsent', false);
+    $K.api('alert.cookieBanner.close');
+});
+
+document.getElementById('cookieBanner').addEventListener('load', function (event) {
+    console.log("Cookie consent: " + cookieConsent);    
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     // Get the current theme variable
     var theme = getCookie('theme');
+    var cookieConsent = getCookie('cookieConsent');
 
     if (theme === 'dark') {
         changeTheme(true);
@@ -30,18 +45,29 @@ document.addEventListener('DOMContentLoaded', function () {
     $K.init({
         observer: true
     });
+
+    // console.log("Cookie consent: " + cookieConsent);
+    if (cookieConsent === '') {
+        // User either consented or denied consent. Hide the banner.
+        $K.api('alert.cookieBanner.open');
+    }
 });
 
 function changeTheme(isDark) {
     var themeSwitch = document.getElementById('themeSwitch');
+    var cookieConsent = getCookie('cookieConsent')
 
     if (isDark === true) {
-        setCookie('theme', 'dark');
+        if (cookieConsent === true) {
+            setCookie('theme', 'dark');
+        }
         document.body.setAttribute('data-theme', 'dark');
         themeSwitch.checked = true;
     }
     else {
-        setCookie('theme', 'light');
+        if (cookieConsent === true) {
+            setCookie('theme', 'light');
+        }
         document.body.setAttribute('data-theme', 'light');
         themeSwitch.checked = false;
     }

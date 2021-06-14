@@ -44,6 +44,7 @@
     string policiesUrl = ExecutionContext.GetLink("policies/index.html", true);
     string contactUrl = ExecutionContext.GetLink("contact/index.html", true);
     string aboutUsUrl = ExecutionContext.GetLink("about", true);
+    string privacyPolicyUrl = ExecutionContext.GetLink("policies/privacy.html", true) + "#cookies";
 
 
     var docPath = Document.GetLink(true);
@@ -123,7 +124,29 @@
         <main class="main">
             <div class="layoutContainer">
                 <div class="alert is-warning">
-                    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This site is still under construction! please be patient as we deploy our content.
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center;">
+                            This site is still under construction! please be patient as we deploy our content.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
+                    <div class="is-row">
+                        <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
+                            <i class="fal fa-cookie-bite fa-2x" aria-hidden="true" title="Cookie Warning"></i>
+                        </div>
+                        <div class="is-col is-container is-items-middle">
+                            Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
+                        </div>
+                        <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='@privacyPolicyUrl';">Privacy Policy</a>
+                            <button id="consentAllow" class="button">Allow</button>
+                            <button id="consentDeny" class="button is-secondary">Deny</button>
+                        </div>
+                    </div>                     
                 </div>
                 @RenderBody()
             </div>

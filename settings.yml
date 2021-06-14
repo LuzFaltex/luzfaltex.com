@@ -1,6 +1,6 @@
 LinksUseHttps: true
 MirrorResources: true
-EditLink: => "https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/" + doc.Source.GetRelativeInputPath()
+EditLink: => "https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/" + doc.Source.GetRelativeInputPath()
 GatherHeadingsLevel: 3
 OpenGraphDescription: "Redefining Roleplay"
 # Host: Configured in Program.cs

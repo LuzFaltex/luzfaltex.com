@@ -446,6 +446,44 @@ img.is-round-image {
     border-radius: 50%;
 }
 
+.is-card {
+    @include flex;
+    @include flex-items-column;
+    @include make-card($background-child-box);
+    border-radius: 0.25rem;
+
+    &>.is-card-header {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+    }
+
+    &>.is-card-body {
+        @include flex;
+        @include flex-items-column;
+        padding: 1rem 1rem;
+    }
+
+    &>.is-card-footer {
+        padding: 0.5rem 1rem;
+    }
+
+    &.is-error {
+        @include make-card($color-error);
+    }
+
+    &.is-focus, &.is-info {
+        @include make-card($color-focus);
+    }
+
+    &.is-success {
+        @include make-card($color-success);
+    }
+
+    &.is-warning {
+        @include make-card($color-warning);
+    }
+}
+
 .bootstrapWrapper {
     @import 'bootstrap/bootstrap.scss';
 
@@ -553,4 +591,12 @@ img.is-round-image {
         }
         background-color: var(--background-light);
     }
+
+    .ck {
+        color: black;
+    }
+}
+
+select.flatpickr-monthDropdown-months {
+    display: inline-block;
 }

@@ -1,6 +1,6 @@
 # This workflow will compile the site and push the compiled HTML to NearlyFreeSpeech.net using an SSH key.
 
-name: NFSN
+name: Development
 
 # Controls when the action will run. 
 on:

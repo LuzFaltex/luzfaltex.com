@@ -20,7 +20,7 @@ namespace LuzFaltex.Web
             })
             .AddShortcode(Constants.EditLink, 
                 (content, parameters, document, context) 
-                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.github.io")
+                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.com")
             .RunAsync();
         }
     }

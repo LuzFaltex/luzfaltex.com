@@ -3,7 +3,7 @@ Title: DMCA Takedown Notice
 xref: dmca-takedown
 ---
 @{
-    var formLink = "https://form-io.caprover.luzfaltex.com/dmca-notice";
+    var formLink = "https://mqabrieontgzqiu.form.io/dmca-notice";
     var submitComplaint = Context.GetLink("/docs/dmca/takedown-notice", true) + "#how-to-submit-your-complaint";
 }
 
@@ -18,6 +18,7 @@ xref: dmca-takedown
         );
     });
 </script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
 
 <h1>DMCA takedown notice</h1>
 <p>If you believe someone is using your copyrighted content in an unauthorized way on a LuzFaltex Project, please fill out the form below to submit a DMCA takedown notice to request that the content be changed or removed. Before you begin, please read <a href="xref:submitDMCATakedown">LuzFaltex's DMCA Takedown Policy</a>.</p>
@@ -30,3 +31,4 @@ xref: dmca-takedown
 </ul>
 <p>If you have attachements or would prefer to send your notice via email or snail mail, please follow <a href="@submitComplaint">these instructions</a> for manually submitting your complaint.</p>
 <div id="formio" class="bootstrapWrapper"></div>
+<noscript>The webform requires Javascript. If you are unable or unwilling to allow Javascript execution on your device, please refer to our <a href="@submitComplaint">Guide to submitting a DMCA Takedown Notice</a> to see alternative methods of submitting a takedown notice.</noscript>
