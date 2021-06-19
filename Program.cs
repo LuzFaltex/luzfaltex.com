@@ -31,7 +31,7 @@ namespace LuzFaltex.Web
                 );
             }
 
-            await bootstrapper.RunAsync();
+            return await bootstrapper.RunAsync();
         }
     }
 }
