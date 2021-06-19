@@ -34,7 +34,5 @@ jobs:
       - name: build site
         run: dotnet run -- deploy
         env:
-          GitHubOwner: LuzFaltex
-          GitHubName: luzfaltex.com
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
