@@ -16,7 +16,7 @@ namespace LuzFaltex.Web
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                settings[Keys.Host] = args.Contains("--development") ? string.Empty : "www.luzfaltex.com";
+                settings[Keys.Host] = args.Contains("--development") || args.Contains("preview") ? string.Empty : "www.luzfaltex.com";
             })
             .AddShortcode(Constants.EditLink, 
                 (content, parameters, document, context) 
@@ -25,8 +25,8 @@ namespace LuzFaltex.Web
             if (args.Contains("--development"))
             {
                 bootstrapper.DeployToGitHubPages(
-                    Config.FromSetting<string>(WebKeys.GitHubOwner),
-                    Config.FromSetting<string>(WebKeys.GitHubName),
+                    "LuzFaltex",
+                    "luzfaltex.com",
                     Config.FromSetting<string>("GITHUB_TOKEN")
                 );
             }
