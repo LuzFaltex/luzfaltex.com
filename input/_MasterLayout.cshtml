@@ -1,13 +1,13 @@
 @{
-    var orangeFoxImage = ExecutionContext.GetLink("assets/img/logoOrange.png", true);
-    var stylesheet = ExecutionContext.GetLink("assets/css/luzfaltex.theme.css", true);
-    var prismStylesheet = ExecutionContext.GetLink("assets/css/prism.css", true);
-    var kubeJs = ExecutionContext.GetLink("assets/js/kube.min.js", true);
-    var prismJs = ExecutionContext.GetLink("assets/js/prism.js", true);
-    var siteJs = ExecutionContext.GetLink("assets/js/site.js", true);
-    var kubeAddonsJs = ExecutionContext.GetLink("assets/js/kube.addons.min.js", true);
+    var orangeFoxImage = ExecutionContext.GetLink("assets/img/logoOrange.png");
+    var stylesheet = ExecutionContext.GetLink("assets/css/luzfaltex.theme.css");
+    var prismStylesheet = ExecutionContext.GetLink("assets/css/prism.css");
+    var kubeJs = ExecutionContext.GetLink("assets/js/kube.min.js");
+    var prismJs = ExecutionContext.GetLink("assets/js/prism.js");
+    var siteJs = ExecutionContext.GetLink("assets/js/site.js");
+    var kubeAddonsJs = ExecutionContext.GetLink("assets/js/kube.addons.min.js");
 
-    var favicon = ExecutionContext.GetLink("assets/img/favicon.svg", true);
+    var favicon = ExecutionContext.GetLink("assets/img/favicon.svg");
 
     var title = Document.GetString(Constants.StylizedTitle) ?? Document.GetString(Constants.Title);
     var ogTitle = Document.GetString(Constants.OpenGraphTitle) ?? title;
