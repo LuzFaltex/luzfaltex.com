@@ -58,14 +58,14 @@ function changeTheme(isDark) {
     var cookieConsent = getCookie('cookieConsent')
 
     if (isDark === true) {
-        if (cookieConsent == true) {
+        if (cookieConsent === "true") {
             setCookie('theme', 'dark');
         }
         document.body.setAttribute('data-theme', 'dark');
         themeSwitch.checked = true;
     }
     else {
-        if (cookieConsent == true) {
+        if (cookieConsent === "true") {
             setCookie('theme', 'light');
         }
         document.body.setAttribute('data-theme', 'light');
