@@ -26,7 +26,7 @@ namespace LuzFaltex.Web
             {
                 bootstrapper.DeployToGitHubPages(
                     "LuzFaltex",
-                    "luzfaltex.github.io",
+                    "luzfaltex.com",
                     Config.FromSetting<string>("GITHUB_TOKEN")
                 );
             }
