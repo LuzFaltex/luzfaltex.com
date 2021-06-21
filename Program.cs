@@ -24,10 +24,11 @@ namespace LuzFaltex.Web
 
             if (args.Contains("--development"))
             {
-                bootstrapper.DeployToGitHubPages(
+                bootstrapper.DeployToGitHubPagesBranch(
                     "LuzFaltex",
                     "luzfaltex.com",
-                    Config.FromSetting<string>("GITHUB_TOKEN")
+                    Config.FromSetting<string>("GITHUB_TOKEN"),
+                    "gh_pages"
                 );
             }
 
