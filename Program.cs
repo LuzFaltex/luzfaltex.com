@@ -22,6 +22,15 @@ namespace LuzFaltex.Web
                 (content, parameters, document, context) 
                 => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.com");
 
+            if (args.Contains("--development"))
+            {
+                bootstrapper.DeployToGitHubPages(
+                    "LuzFaltex",
+                    "luzfaltex.github.io",
+                    Config.FromSetting<string>("GITHUB_TOKEN")
+                );
+            }
+
             return await bootstrapper.RunAsync();
         }
     }

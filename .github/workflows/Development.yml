@@ -33,8 +33,4 @@ jobs:
       # Build and push to GitHub Pages
       - name: build site
         run: dotnet run -- deploy --development -l Debug
-        env:
-          GitHubOwner: LuzFaltex
-          GitHubName: luzfaltex.github.io
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
