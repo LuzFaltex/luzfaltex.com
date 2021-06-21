@@ -35,6 +35,6 @@ jobs:
         run: dotnet run -- deploy --development -l Debug
         env:
           GitHubOwner: LuzFaltex
-          GitHubName: luzfaltex.com
+          GitHubName: luzfaltex.github.io
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
