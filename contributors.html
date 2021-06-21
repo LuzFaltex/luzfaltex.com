@@ -3,87 +3,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Contributors -- LuzFaltex</title>
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="/">
-    <meta name="og:image" content="/assets/img/Logo%20Orange.png">
+    <meta name="og:image" content="/assets/img/logoOrange.png">
     <meta name="og:site_name" content="LuzFaltex">
     <meta name="og:title" content="Contributors">
     <meta name="og:url" content="/contributors">
     <meta name="og:description" content="Users who have contributed to the website.">
 
-    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
 
-    <script src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
+    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+
+    <script data-search-pseudo-elements="" defer="" src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
 </head>
 
+
 <body data-theme="dark">
+
+    <div id="mobile-nav" class="is-hidden">
+        <nav>
+            <ul>
+                <li><a class="is-active" href="/">Home</a></li>
+                <li><a class="not-active" href="/projects">Projects</a></li>
+                <li><a class="not-active" href="/docs">Docs</a></li>
+                <li><a class="not-active" href="/contact">Contact</a></li>
+                <li><a class="is-active" href="/about">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
-                <a class="logo" href="/index">
-                    <img src="/assets/img/Logo%20Orange.png" alt="LuzFaltex" loading="lazy">
-                    <h2>&nbsp;LuzFaltex</h2>
+                <a class="logo" href="/">
+                    <img src="/assets/img/logoOrange.png" alt="LuzFaltex" loading="lazy">
+                    <h2>LuzFaltex</h2>
                 </a>
             </div>
         </header>
         <div class="navMenu">
             <div class="layoutContainer">
                 <div class="is-navbar-container">
-                    <div class="is-navbar">
+                    <div id="mobile-nav-menu" class="is-navbar is-hidden-mobile">
                         <nav>
-                            <ul>
-                                
+                            <ul>                                
                                 <li><a class="is-active" href="/">Home</a></li>
                                 <li><a class="not-active" href="/projects">Projects</a></li>
                                 <li><a class="not-active" href="/docs">Docs</a></li>
+                                <li><a class="not-active" href="/about">About Us</a></li>
                                 <li><a class="not-active" href="/contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="is-navbar-right">
+                    <div class="is-navbar-right is-hidden-mobile">
                         <ul class="is-bar">
                             <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
                             <li>
                                 <div class="slider">
-                                    <input type="checkbox" id="themeSwitch" class="slider" checked="">
+                                    <input type="checkbox" id="themeSwitch" class="slider">
                                     <label for="themeSwitch" class="toggle-label"></label>
                                 </div>
                             </li>
-                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme" aria-hidden="true"></i></li>    
                             <li>
-                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/Contributors.cshtml" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/Contributors.cshtml" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
                             </li>
                         </ul>
-                    </div>             
+                    </div>
+                    <div class="is-navbar is-shown-mobile is-right-mobile is-flex-mobile">
+                        <button data-kube="toggle" data-target="#mobile-nav-menu" class="button is-tertiary nav-toggle is-push-right-mobile">
+                            <span class="icon-kube-menu"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <main class="main">
             <div class="layoutContainer">
-                
-<div class="box">
+                <div class="alert is-warning">
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center;">
+                            This site is still under construction! please be patient as we deploy our content.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
+                    <div class="is-row">
+                        <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
+                            <i class="fal fa-cookie-bite fa-2x" aria-hidden="true" title="Cookie Warning"></i>
+                        </div>
+                        <div class="is-col is-container is-items-middle">
+                            Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
+                        </div>
+                        <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='/policies/privacy#cookies';">Privacy Policy
+                            </button><button id="consentAllow" class="button">Allow</button>
+                            <button id="consentDeny" class="button is-secondary">Deny</button>
+                        </div>
+                    </div>                     
+                </div>
+                <div class="box">
 
     <div class="is-row">
         <div class="is-col">
             <h3>Site Structure</h3>
             <ul class="is-list">
-                <li><a href="https://github.com/Foxtrek_64" target="_blank" rel="noopener">@Foxtrek_64</a></li>
+                <li><a href="https://github.com/Foxtrek64" target="_blank" rel="noopener">@Foxtrek64</a></li>
             </ul>
         </div>
         <div class="is-col">
             <h3>Projects</h3>
             <ul class="is-list">
-                <li><a href="https://github.com/Foxtrek_64" target="_blank" rel="noopener">@Foxtrek_64</a></li>
+                <li><a href="https://github.com/Foxtrek64" target="_blank" rel="noopener">@Foxtrek64</a></li>
             </ul>
         </div>
         <div class="is-col">
             <h3>Docs</h3>
             <ul class="is-list">
-                <li><a href="https://github.com/Foxtrek_64" target="_blank" rel="noopener">@Foxtrek_64</a></li>
+                <li><a href="https://github.com/Foxtrek64" target="_blank" rel="noopener">@Foxtrek64</a></li>
             </ul>
         </div>
-    </div>    
+    </div>
+
+    <div class="is-row">
+        <div class="is-col">
+            <pre><code class="language-xml-diff">
+                <websafe>
+                    --- a/LuzFaltexWeb.csproj
+                    +++ b/LuzFaltexWeb.csproj
+                    @ -3,6 +3,7 @
+                    &lt;PropertyGroup&gt;
+                        &lt;OutputType&gt;Exe&lt;/OutputType&gt;
+                        &lt;TargetFramework&gt;netcoreapp3.1&lt;/TargetFramework&gt;
+                    +    &lt;AssemblyName&gt;LuzFaltex.Web&lt;/AssemblyName&gt;
+                    &lt;/PropertyGroup&gt;
+
+                    &lt;ItemGroup&gt;
+                </websafe>
+            </code></pre>
+        </div>
+    </div>  
 
 </div>
             </div>
@@ -100,13 +164,14 @@
             <ul class="is-bar is-text-center">
                 <li><a href="/policies/privacy">Privacy Policy</a></li>
                 <li><a href="/policies/terms">TACOS</a></li>
-                <li><a href="/policies/logos">Logos</a></li>
-                <li><a href="/contact/index">Contact Us</a></li>
+                <li><a href="/policies/privacy">Logos</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </nav>
     </li>
-    <li class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
-    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center">Documentation licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC NC-BY 4.0</a> except where otherwise noted.</li>
+    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="noopener">Statiq</a> and <a href="https://www.nearlyfreespeech.net/" target="_blank" rel="noopener">NearlyFreeSpeech.Net</a>.</li>
     <li class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</li>
 </ul>
                     </div>               
@@ -116,6 +181,8 @@
         </footer>
     </div>
     <script src="/assets/js/kube.min.js"></script>
+    <script src="/assets/js/kube.addons.min.js"></script>
+    <script src="/assets/js/prism.js"></script>
     <script src="/assets/js/site.js"></script>
 
 

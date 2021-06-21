@@ -3,58 +3,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Terms and Conditions of Service -- LuzFaltex</title>
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="/">
-    <meta name="og:image" content="/assets/img/Logo%20Orange.png">
+    <meta name="og:image" content="/assets/img/logoOrange.png">
     <meta name="og:site_name" content="LuzFaltex">
     <meta name="og:title" content="Terms and Conditions of Service">
     <meta name="og:url" content="/policies/terms">
     <meta name="og:description" content="Legal text for TACOS">
 
-    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
 
-    <script src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
+    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+
+    <script data-search-pseudo-elements="" defer="" src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
 </head>
 
+
 <body data-theme="dark">
+
+    <div id="mobile-nav" class="is-hidden">
+        <nav>
+            <ul>
+                <li><a class="not-active" href="/">Home</a></li>
+                <li><a class="not-active" href="/projects">Projects</a></li>
+                <li><a class="is-active" href="/docs">Docs</a></li>
+                <li><a class="not-active" href="/contact">Contact</a></li>
+                <li><a class="not-active" href="/about">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
-                <a class="logo" href="/index">
-                    <img src="/assets/img/Logo%20Orange.png" alt="LuzFaltex" loading="lazy">
-                    <h2>&nbsp;LuzFaltex</h2>
+                <a class="logo" href="/">
+                    <img src="/assets/img/logoOrange.png" alt="LuzFaltex" loading="lazy">
+                    <h2>LuzFaltex</h2>
                 </a>
             </div>
         </header>
         <div class="navMenu">
             <div class="layoutContainer">
                 <div class="is-navbar-container">
-                    <div class="is-navbar">
+                    <div id="mobile-nav-menu" class="is-navbar is-hidden-mobile">
                         <nav>
-                            <ul>
-                                
+                            <ul>                                
                                 <li><a class="not-active" href="/">Home</a></li>
                                 <li><a class="not-active" href="/projects">Projects</a></li>
                                 <li><a class="is-active" href="/docs">Docs</a></li>
+                                <li><a class="not-active" href="/about">About Us</a></li>
                                 <li><a class="not-active" href="/contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="is-navbar-right">
+                    <div class="is-navbar-right is-hidden-mobile">
                         <ul class="is-bar">
                             <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
                             <li>
                                 <div class="slider">
-                                    <input type="checkbox" id="themeSwitch" class="slider" checked="">
+                                    <input type="checkbox" id="themeSwitch" class="slider">
                                     <label for="themeSwitch" class="toggle-label"></label>
                                 </div>
                             </li>
-                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme" aria-hidden="true"></i></li>    
                             <li>
-                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/policies/terms.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/policies/terms.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
                             </li>
                         </ul>
-                    </div>             
+                    </div>
+                    <div class="is-navbar is-shown-mobile is-right-mobile is-flex-mobile">
+                        <button data-kube="toggle" data-target="#mobile-nav-menu" class="button is-tertiary nav-toggle is-push-right-mobile">
+                            <span class="icon-kube-menu"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,64 +83,39 @@
         <main class="main">
             <div class="layoutContainer">
                 <div class="alert is-warning">
-    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This article is still under construction! please be patient as we deploy our content.
-</div>
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center;">
+                            This site is still under construction! please be patient as we deploy our content.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
+                    <div class="is-row">
+                        <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
+                            <i class="fal fa-cookie-bite fa-2x" aria-hidden="true" title="Cookie Warning"></i>
+                        </div>
+                        <div class="is-col is-container is-items-middle">
+                            Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
+                        </div>
+                        <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='/policies/privacy#cookies';">Privacy Policy
+                            </button><button id="consentAllow" class="button">Allow</button>
+                            <button id="consentDeny" class="button is-secondary">Deny</button>
+                        </div>
+                    </div>                     
+                </div>
+                
 <div class="is-container">
-    <div class="main-sidebar">
-        <div class="box">
-            <h3 class="no-anchor">Documents</h3>
-<nav>
-    <ul>
-        <li>
-            <details>
-                <summary>Documentation</summary>
-                <ul>
-                        <li><a href="/docs/immutablelaws">Microsoft's Ten Immutable Laws of Security (Version 2.0)</a></li>
-                </ul>
-            </details>
-        </li>
-        <li>
-            <details open="">
-                <summary>Policies</summary>
-                <ul>
-                        <li><a href="/policies/conduct">Code of Conduct</a></li>
-                        <li><a href="/policies/logos">Logos</a></li>
-                        <li><a href="/policies/privacy">Privacy</a></li>
-                        <li><a href="/policies/terms">Terms and Conditions of Service</a></li>
-                        <li><a href="/policies/vulnerabilityreporting">Vulnerability Reporting Policy</a></li>
-                </ul>
-            </details>            
-        </li>
-    </ul>
-</nav>
-        </div>
-                <div class="box">
-            <h3 class="no-anchor">On This Page</h3>
-            
-        </div>
-    <div class="box">
-        <div class="label is-warning">Debug Panel</div>
-        <p>Heading count: 1</p>
-        <ul>
-                <li>Terms and Conditions of Service</li>
-                <ul>
-                        <li>Heading ID: terms-and-conditions-of-service</li>
-                        <li>Level: 1</li>
-                        <li>Document List Count: 0</li>
-                        <li>Child Count: 0</li>
-                        <li>Child Metadata Count: 0</li>
-                </ul>
-        </ul>
-    </div>
-   
-    </div>
     <div class="main-content">
         <div class="box">
             <h1 id="terms-and-conditions-of-service">Terms and Conditions of Service</h1>
 <h2 id="preamble">Preamble</h2>
 <p>The following Terms and Conditions of Service ("TACOS") govern all use of the LuzFaltex.com website and all content, services, and products provided by LuzFaltex (taken together, the "Projects"). The Projects are offered subject to your acceptance without modification all of the TACOS contained herein and all other operating rules, policies (including, without limitation, the <a href="/policies/privacy">LuzFaltex Privacy Policy</a>, the <a href="/policies/conduct">LuzFaltex Code of Conduct</a>, and the <a href="/policies/vulnerabilityreporting">LuzFaltex Security Vulnerability Reporting Policy</a>) and all procedures that may be published from time to time on this site or any project site (collectively, the "Agreements"). The Agreements comprise the entire agreement between you and us relating to Content and your use of the Projects and supersedes any prior or inconsistent agreements. In the event that any part of this agreement is declared unenforceable or invalid, the remainder will continue to be valid and enforceable. Links to these agreements will be available at the bottom of all pages.</p>
 <p>Please read these Agreements carefully before accessing or using the Website. By accessing or using any part of the Projects and/or uploading or attempting to upload any Content (as defined in <a href="#definitions">Definitions</a>), you agree to become bound by the Agreements hereafter perpetually and indefinitely, regardless of whether you continue to remain a registered user or not, unless and until terminated, in whole or in part, by LuzFaltex on notice to you. If you do not agree to all the terms and conditions of this agreement, then you may not access any of the Projects. If these TACOS are considered an offer by LuzFaltex, acceptance is expressly limited to these terms. The Projects are available only to individuals who are at least 13 years old, or if younger than 13, with the appropriate permission and consents from your parent or legal guardian.</p>
-<p>We may change these TACOS or make new TACOS at any time. Although we will attempt to notify you through reasonable means when the TACOS change, we are under no obligation to do so. The newest TACOS will always be available at our documentation pages under <a href="/policies/terms">Terms and Conditions of Service</a>. A history of all of the changes made to these TACOS will be available on <a href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/policies/terms.md">GitHub</a>.</p>
+<p>We may change these TACOS or make new TACOS at any time. Although we will attempt to notify you through reasonable means when the TACOS change, we are under no obligation to do so. The newest TACOS will always be available at our documentation pages under <a href="/policies/terms">Terms and Conditions of Service</a>. A history of all of the changes made to these TACOS will be available on <a href="https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/policies/terms.md">GitHub</a>.</p>
 <h2 id="definitions">Definitions</h2>
 <p>The term "Content" means and refers to any and all content, media, and materials you submit to the Projects, including, without limitation, still photographs, writings, spoken statements, music, audio, video, video recordings, audio-visual works and recordings, slides, portraits, animated and/or motion pictures, caricatures, likenesses, vocal or other sounds, sound recordings, voices, voice reproductions, computer graphics and visual effects, as well as any accompanying documentation, packaging or other materials, tangible or intangible, and to all derivative works, translations, adaptations or variations of same, regardless of tangible medium, broadcast medium, format or form, now known or hereinafter developed or discovered, and regardless of where produced, on location, in a studio, or elsewhere, in black-and-white or in color, alone or in conjunction with other work, characters, real or imaginary, in any part of the world.</p>
 <p>The term "Moderator" means and refers to any member of LuzFaltex staff, or an appointed agent thereof, who is responsible for enforcing these Agreements.</p>
@@ -167,24 +163,7 @@
 <p>Notwithstanding the foregoing TACOS, you acknowledge and agree that LuzFaltex shall not be required or have any obligation to host, index, display, accept, or use any submitted Content (or take advantage of any or all of the particular rights and authorities granted or otherwise available) and LuzFaltex may, in its sole discretion, remove or refused to host, index, display, accept, use, or do anything at all with respect to any Content. Once you submit or attempt to submit Content, or access the Website, you have no right to prohibit, restrict, revoke, or terminate any of the rights granted to LuzFaltex. You are not entitled to and you will not receive any compensation for your submission.</p>
 <p>You hereby release LuzFaltex of any and all claims of any rights, encumbrances, liens, claims, demands, actions, or suits which you may or can have in connection with your Content, including, without limitation, any and all liability for any use or non-use of your Content, claims for defamation, libel, slander, invasion of privacy, right of publicity, emotional distress, or economic loss.</p>
 <h2 id="copyright">Copyright</h2>
-<p>If you are a copyright owner or agent thereof and believe that any Content infringes upon your copyrights, you may submit a notification pursuant to the Digital Millennium Copyright Act ("DMCA") by providing our Copyright Agent with the following information in writing (see 17 U.S.C. 512(c)(3) for further detail):</p>
-<ul>
-<li>A physical or electronic signature of the owner or person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;</li>
-<li>Identification of the copyrighted work claimed to have been infringed, or if multiple copyrighted works are covered by a single notification, a representative list of such works;</li>
-<li>Identification of the Content that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit LuzFaltex to locate the material;</li>
-<li>Information reasonably sufficient to permit LuzFaltex to contact you, such as an address, telephone number, and, if available, an electronic mail;</li>
-<li>A statement that you have good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and</li>
-<li>A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
-</ul>
-<p>You may direct copyright infringement claims to our DMCA Agent at <a href="mailto:copyright@luzfaltex.com">copyright@luzfaltex.com</a>.</p>
-<p>For clarity, only DMCA notices should go to the Copyright Agent; any other feedback, comments, requests for technical support, and other communications should be directed to a Moderator. You acknowledge that if you fail to comply with all of the requirements of this Section, your DMCA notice may not be valid. Upon receipt of a copyright infringement notification, LuzFaltex will inform the user who submitted the Content identified within the notification and remove or disable access to the allegedly infringed Content. For avoidance of doubt, the user who submitted the Content assumes all responsibility for any alleged infringement (see the <a href="#ownership">Ownership</a> section). If you believe that your Content that was removed (or to which access was disabled) is not infringing, or that you have the authorization from the copyright owner, the copyright owner's agent, or pursuant to the law, to post and use the material in your Content, you may send a counter-notice containing the following information to the Copyright Agent:</p>
-<ul>
-<li>Your physical or electronic signature;</li>
-<li>Identification of the Content that has been removed or to which access has been disabled and the location at which the user content appeared before it was removed or disabled;</li>
-<li>A statement that you have a good faith belief that the Content was removed or disabled as a result of mistake or a misidentification of the Content; and</li>
-<li>Your name, address, telephone number, and email address, a statement that you consent to the jurisdiction of the federal court in Kansas City, Kansas, and a statement that you will accept service of process from the person who provided the notification of the alleged infringement.</li>
-</ul>
-<p>If a counter-notice is received by the Copyright Agent, LuzFaltex may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed Content or cease disabling it in 10 business days. Unless the copyright owner files an action seeking a court order against the Content provider, member, or user, the removed content may be replaced, or access to it restored, in 10 to 14 business days or more after receipt of the counter-notice, at LuzFaltex's sole discretion.</p>
+<p>Please see the <a href="/policies/dmca">DMCA Takedown Policy</a>.</p>
 <h2 id="final-clause">Final Clause</h2>
 <p>You represent, warrant, and covenant to LuzFaltex, and by using the Website and server and/or submitting Content, you reaffirm each such representation, warranty and covenant, that:</p>
 <ul>
@@ -202,11 +181,13 @@
     </div>
 </div>
 
-<script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
-<script>
-    anchors.add()
-    anchors.remove('.no-anchor')
-</script>
+
+    <script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+    <script>
+        anchors.add()
+        anchors.remove('.no-anchor')
+    </script>
+
             </div>
         </main>
 
@@ -221,13 +202,14 @@
             <ul class="is-bar is-text-center">
                 <li><a href="/policies/privacy">Privacy Policy</a></li>
                 <li><a href="/policies/terms">TACOS</a></li>
-                <li><a href="/policies/logos">Logos</a></li>
-                <li><a href="/contact/index">Contact Us</a></li>
+                <li><a href="/policies/privacy">Logos</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </nav>
     </li>
-    <li class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
-    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center">Documentation licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC NC-BY 4.0</a> except where otherwise noted.</li>
+    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="noopener">Statiq</a> and <a href="https://www.nearlyfreespeech.net/" target="_blank" rel="noopener">NearlyFreeSpeech.Net</a>.</li>
     <li class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</li>
 </ul>
                     </div>               
@@ -237,6 +219,8 @@
         </footer>
     </div>
     <script src="/assets/js/kube.min.js"></script>
+    <script src="/assets/js/kube.addons.min.js"></script>
+    <script src="/assets/js/prism.js"></script>
     <script src="/assets/js/site.js"></script>
 
 

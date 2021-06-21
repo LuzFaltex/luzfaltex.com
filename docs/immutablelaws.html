@@ -3,58 +3,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Microsoft's Ten Immutable Laws of Security (Version 2.0) -- LuzFaltex</title>
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="/">
-    <meta name="og:image" content="/assets/img/Logo%20Orange.png">
+    <meta name="og:image" content="/assets/img/logoOrange.png">
     <meta name="og:site_name" content="LuzFaltex">
     <meta name="og:title" content="Microsoft's Ten Immutable Laws of Security (Version 2.0)">
     <meta name="og:url" content="/docs/immutablelaws">
     <meta name="og:description" content="Ten truisms regarding IT security.">
 
-    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
 
-    <script src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
+    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+
+    <script data-search-pseudo-elements="" defer="" src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
 </head>
 
+
 <body data-theme="dark">
+
+    <div id="mobile-nav" class="is-hidden">
+        <nav>
+            <ul>
+                <li><a class="not-active" href="/">Home</a></li>
+                <li><a class="not-active" href="/projects">Projects</a></li>
+                <li><a class="is-active" href="/docs">Docs</a></li>
+                <li><a class="not-active" href="/contact">Contact</a></li>
+                <li><a class="not-active" href="/about">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
-                <a class="logo" href="/index">
-                    <img src="/assets/img/Logo%20Orange.png" alt="LuzFaltex" loading="lazy">
-                    <h2>&nbsp;LuzFaltex</h2>
+                <a class="logo" href="/">
+                    <img src="/assets/img/logoOrange.png" alt="LuzFaltex" loading="lazy">
+                    <h2>LuzFaltex</h2>
                 </a>
             </div>
         </header>
         <div class="navMenu">
             <div class="layoutContainer">
                 <div class="is-navbar-container">
-                    <div class="is-navbar">
+                    <div id="mobile-nav-menu" class="is-navbar is-hidden-mobile">
                         <nav>
-                            <ul>
-                                
+                            <ul>                                
                                 <li><a class="not-active" href="/">Home</a></li>
                                 <li><a class="not-active" href="/projects">Projects</a></li>
                                 <li><a class="is-active" href="/docs">Docs</a></li>
+                                <li><a class="not-active" href="/about">About Us</a></li>
                                 <li><a class="not-active" href="/contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="is-navbar-right">
+                    <div class="is-navbar-right is-hidden-mobile">
                         <ul class="is-bar">
                             <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
                             <li>
                                 <div class="slider">
-                                    <input type="checkbox" id="themeSwitch" class="slider" checked="">
+                                    <input type="checkbox" id="themeSwitch" class="slider">
                                     <label for="themeSwitch" class="toggle-label"></label>
                                 </div>
                             </li>
-                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme" aria-hidden="true"></i></li>    
                             <li>
-                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/docs/immutableLaws.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/docs/immutableLaws.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
                             </li>
                         </ul>
-                    </div>             
+                    </div>
+                    <div class="is-navbar is-shown-mobile is-right-mobile is-flex-mobile">
+                        <button data-kube="toggle" data-target="#mobile-nav-menu" class="button is-tertiary nav-toggle is-push-right-mobile">
+                            <span class="icon-kube-menu"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,62 +83,37 @@
         <main class="main">
             <div class="layoutContainer">
                 <div class="alert is-warning">
-    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This article is still under construction! please be patient as we deploy our content.
-</div>
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center;">
+                            This site is still under construction! please be patient as we deploy our content.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
+                    <div class="is-row">
+                        <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
+                            <i class="fal fa-cookie-bite fa-2x" aria-hidden="true" title="Cookie Warning"></i>
+                        </div>
+                        <div class="is-col is-container is-items-middle">
+                            Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
+                        </div>
+                        <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='/policies/privacy#cookies';">Privacy Policy
+                            </button><button id="consentAllow" class="button">Allow</button>
+                            <button id="consentDeny" class="button is-secondary">Deny</button>
+                        </div>
+                    </div>                     
+                </div>
+                
 <div class="is-container">
-    <div class="main-sidebar">
-        <div class="box">
-            <h3 class="no-anchor">Documents</h3>
-<nav>
-    <ul>
-        <li>
-            <details open="">
-                <summary>Documentation</summary>
-                <ul>
-                        <li><a href="/docs/immutablelaws">Microsoft's Ten Immutable Laws of Security (Version 2.0)</a></li>
-                </ul>
-            </details>
-        </li>
-        <li>
-            <details>
-                <summary>Policies</summary>
-                <ul>
-                        <li><a href="/policies/conduct">Code of Conduct</a></li>
-                        <li><a href="/policies/logos">Logos</a></li>
-                        <li><a href="/policies/privacy">Privacy</a></li>
-                        <li><a href="/policies/terms">Terms and Conditions of Service</a></li>
-                        <li><a href="/policies/vulnerabilityreporting">Vulnerability Reporting Policy</a></li>
-                </ul>
-            </details>            
-        </li>
-    </ul>
-</nav>
-        </div>
-                <div class="box">
-            <h3 class="no-anchor">On This Page</h3>
-            
-        </div>
-    <div class="box">
-        <div class="label is-warning">Debug Panel</div>
-        <p>Heading count: 1</p>
-        <ul>
-                <li>Microsoft's Ten Immutable Laws of Security (Version 2.0)</li>
-                <ul>
-                        <li>Heading ID: microsofts-ten-immutable-laws-of-security-version-2.0</li>
-                        <li>Level: 1</li>
-                        <li>Document List Count: 0</li>
-                        <li>Child Count: 0</li>
-                        <li>Child Metadata Count: 0</li>
-                </ul>
-        </ul>
-    </div>
-   
-    </div>
     <div class="main-content">
         <div class="box">
             <h1 id="microsofts-ten-immutable-laws-of-security-version-2.0">Microsoft's Ten Immutable Laws of Security (Version 2.0)</h1>
-<div class="is-focus alert"><p>These laws refer to security vulnerabilities that do not have a fix. It isn't possible for LuzFaltex, or any software vendor for that matter, to "fix" these issues, as they are formed as a consequence of how computers work. Below is the original article from Microsoft, with some formatting modifications to make reading easier.</p>
-<p>Here at the Microsoft Security Response Center, we investigate thousands of security reports every year. In some cases, we find that a report describes a bona fide security vulnerability resulting from an issue in one of our products; when this happens, we develop a corrective update as quickly as possible. In other cases, the reported problems simply result from a mistake someone made in using the product, or our investigation finds a problem with the product that, while troublesome for users, does not expose them to a security vulnerability. But many fall in between. They are genuine security problems, but the problems don't result from product flaws. Over the years, we've developed a list of issues like these that we call the 10 Immutable Laws of Security.</p>
+<p>These laws refer to security vulnerabilities that do not have a fix. It isn't possible for LuzFaltex, or any software vendor for that matter, to "fix" these issues, as they are formed as a consequence of how computers work. Below is the original article from Microsoft, with some formatting modifications to make reading easier.</p>
+<div class="alert is-focus"><p>Here at the Microsoft Security Response Center, we investigate thousands of security reports every year. In some cases, we find that a report describes a bona fide security vulnerability resulting from an issue in one of our products; when this happens, we develop a corrective update as quickly as possible. In other cases, the reported problems simply result from a mistake someone made in using the product, or our investigation finds a problem with the product that, while troublesome for users, does not expose them to a security vulnerability. But many fall in between. They are genuine security problems, but the problems don't result from product flaws. Over the years, we've developed a list of issues like these that we call the 10 Immutable Laws of Security.</p>
 <p>Don't hold your breath waiting for an update that will protect you from the issues we'll discuss below. It isn't possible for Microsoft—or any software vendor—to "fix" them, because they result from the way computers work. But don't abandon all hope yet. Sound judgment is the key to protecting yourself against these pitfalls, and if you keep them in mind, you can significantly improve the security of your computers, whether they sit on your desk, travel in your pocket, or exist in a virtual cloud. (Throughout this list we’ll use “computer” to mean all of those objects, by the way.)</p>
 </div>
 <h2 id="the-10-immutable-laws">The 10 Immutable Laws</h2>
@@ -206,11 +202,13 @@
     </div>
 </div>
 
-<script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
-<script>
-    anchors.add()
-    anchors.remove('.no-anchor')
-</script>
+
+    <script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+    <script>
+        anchors.add()
+        anchors.remove('.no-anchor')
+    </script>
+
             </div>
         </main>
 
@@ -225,13 +223,14 @@
             <ul class="is-bar is-text-center">
                 <li><a href="/policies/privacy">Privacy Policy</a></li>
                 <li><a href="/policies/terms">TACOS</a></li>
-                <li><a href="/policies/logos">Logos</a></li>
-                <li><a href="/contact/index">Contact Us</a></li>
+                <li><a href="/policies/privacy">Logos</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </nav>
     </li>
-    <li class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
-    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center">Documentation licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC NC-BY 4.0</a> except where otherwise noted.</li>
+    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="noopener">Statiq</a> and <a href="https://www.nearlyfreespeech.net/" target="_blank" rel="noopener">NearlyFreeSpeech.Net</a>.</li>
     <li class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</li>
 </ul>
                     </div>               
@@ -241,6 +240,8 @@
         </footer>
     </div>
     <script src="/assets/js/kube.min.js"></script>
+    <script src="/assets/js/kube.addons.min.js"></script>
+    <script src="/assets/js/prism.js"></script>
     <script src="/assets/js/site.js"></script>
 
 

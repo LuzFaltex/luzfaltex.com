@@ -3,58 +3,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Code of Conduct -- LuzFaltex</title>
     <meta name="description" content="LuzFaltex, LLC -- Game Development and Roleplay Services">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="/">
-    <meta name="og:image" content="/assets/img/Logo%20Orange.png">
+    <meta name="og:image" content="/assets/img/logoOrange.png">
     <meta name="og:site_name" content="LuzFaltex">
     <meta name="og:title" content="Code of Conduct">
     <meta name="og:url" content="/policies/conduct">
     <meta name="og:description" content="Community Conduct Rules">
 
-    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
 
-    <script src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
+    <link rel="stylesheet" href="/assets/css/luzfaltex.theme.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+
+    <script data-search-pseudo-elements="" defer="" src="/mirror/kit.fontawesome.com/f1d004b53d.js"></script>
 </head>
 
+
 <body data-theme="dark">
+
+    <div id="mobile-nav" class="is-hidden">
+        <nav>
+            <ul>
+                <li><a class="not-active" href="/">Home</a></li>
+                <li><a class="not-active" href="/projects">Projects</a></li>
+                <li><a class="is-active" href="/docs">Docs</a></li>
+                <li><a class="not-active" href="/contact">Contact</a></li>
+                <li><a class="not-active" href="/about">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="page">
         <header class="header">
             <div class="layoutContainer">
-                <a class="logo" href="/index">
-                    <img src="/assets/img/Logo%20Orange.png" alt="LuzFaltex" loading="lazy">
-                    <h2>&nbsp;LuzFaltex</h2>
+                <a class="logo" href="/">
+                    <img src="/assets/img/logoOrange.png" alt="LuzFaltex" loading="lazy">
+                    <h2>LuzFaltex</h2>
                 </a>
             </div>
         </header>
         <div class="navMenu">
             <div class="layoutContainer">
                 <div class="is-navbar-container">
-                    <div class="is-navbar">
+                    <div id="mobile-nav-menu" class="is-navbar is-hidden-mobile">
                         <nav>
-                            <ul>
-                                
+                            <ul>                                
                                 <li><a class="not-active" href="/">Home</a></li>
                                 <li><a class="not-active" href="/projects">Projects</a></li>
                                 <li><a class="is-active" href="/docs">Docs</a></li>
+                                <li><a class="not-active" href="/about">About Us</a></li>
                                 <li><a class="not-active" href="/contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="is-navbar-right">
+                    <div class="is-navbar-right is-hidden-mobile">
                         <ul class="is-bar">
                             <li><i class="fas fa-sun" title="Light Theme" aria-label="Light Theme" aria-hidden="true"></i></li>
                             <li>
                                 <div class="slider">
-                                    <input type="checkbox" id="themeSwitch" class="slider" checked="">
+                                    <input type="checkbox" id="themeSwitch" class="slider">
                                     <label for="themeSwitch" class="toggle-label"></label>
                                 </div>
                             </li>
-                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme Theme" aria-hidden="true"></i></li>    
+                            <li><i class="fas fa-moon" title="Dark Theme" aria-label="Dark Theme" aria-hidden="true"></i></li>    
                             <li>
-                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.github.io/edit/main/input/policies/conduct.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
+                                    <a class="is-push-right" href="https://github.com/LuzFaltex/luzfaltex.com/blob/main/input/policies/conduct.md" target="_blank" rel="noreferer noopener" style="text-decoration: none"><i class="fal fa-pencil-alt" aria-hidden="true"></i> Improve this page</a>
                             </li>
                         </ul>
-                    </div>             
+                    </div>
+                    <div class="is-navbar is-shown-mobile is-right-mobile is-flex-mobile">
+                        <button data-kube="toggle" data-target="#mobile-nav-menu" class="button is-tertiary nav-toggle is-push-right-mobile">
+                            <span class="icon-kube-menu"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,57 +83,32 @@
         <main class="main">
             <div class="layoutContainer">
                 <div class="alert is-warning">
-    <i class="fal fa-construction" aria-hidden="true" title="Under Construction"></i> This article is still under construction! please be patient as we deploy our content.
-</div>
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center;">
+                            This site is still under construction! please be patient as we deploy our content.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
+                    <div class="is-row">
+                        <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
+                            <i class="fal fa-cookie-bite fa-2x" aria-hidden="true" title="Cookie Warning"></i>
+                        </div>
+                        <div class="is-col is-container is-items-middle">
+                            Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
+                        </div>
+                        <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='/policies/privacy#cookies';">Privacy Policy
+                            </button><button id="consentAllow" class="button">Allow</button>
+                            <button id="consentDeny" class="button is-secondary">Deny</button>
+                        </div>
+                    </div>                     
+                </div>
+                
 <div class="is-container">
-    <div class="main-sidebar">
-        <div class="box">
-            <h3 class="no-anchor">Documents</h3>
-<nav>
-    <ul>
-        <li>
-            <details>
-                <summary>Documentation</summary>
-                <ul>
-                        <li><a href="/docs/immutablelaws">Microsoft's Ten Immutable Laws of Security (Version 2.0)</a></li>
-                </ul>
-            </details>
-        </li>
-        <li>
-            <details open="">
-                <summary>Policies</summary>
-                <ul>
-                        <li><a href="/policies/conduct">Code of Conduct</a></li>
-                        <li><a href="/policies/logos">Logos</a></li>
-                        <li><a href="/policies/privacy">Privacy</a></li>
-                        <li><a href="/policies/terms">Terms and Conditions of Service</a></li>
-                        <li><a href="/policies/vulnerabilityreporting">Vulnerability Reporting Policy</a></li>
-                </ul>
-            </details>            
-        </li>
-    </ul>
-</nav>
-        </div>
-                <div class="box">
-            <h3 class="no-anchor">On This Page</h3>
-            
-        </div>
-    <div class="box">
-        <div class="label is-warning">Debug Panel</div>
-        <p>Heading count: 1</p>
-        <ul>
-                <li>LuzFaltex Code of Conduct</li>
-                <ul>
-                        <li>Heading ID: luzfaltex-code-of-conduct</li>
-                        <li>Level: 1</li>
-                        <li>Document List Count: 0</li>
-                        <li>Child Count: 0</li>
-                        <li>Child Metadata Count: 0</li>
-                </ul>
-        </ul>
-    </div>
-   
-    </div>
     <div class="main-content">
         <div class="box">
             <h1 id="luzfaltex-code-of-conduct">LuzFaltex Code of Conduct</h1>
@@ -136,7 +132,7 @@
 <li>This code is not exhaustive or complete. It serves to capture our common understanding of a productive, collaborative environment. We expect the code to be followed in spirit as much as in the letter.</li>
 </ul>
 <h2 id="scope">Scope</h2>
-<p>This code applies to all LuzFaltex communities, sites, and services as per your agreement with the <a href="./tacos-overview.md">TACOS</a>. This code also applies in public spaces when an individual is representing a project or its community. Examples include an official project e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by the project itself.</p>
+<p>This code applies to all LuzFaltex communities, sites, and services as per your agreement with the <a href="/policies/terms">TACOS</a>. This code also applies in public spaces when an individual is representing a project or its community. Examples include an official project e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by the project itself.</p>
 <h2 id="reporting-code-of-conduct-issues">Reporting Code of Conduct Issues</h2>
 <p>We encourage all community members to resolve issues on their own whenever possible. This builds a broader and deeper understanding and ultimately a healthier interaction. In the event that an issue cannot be resolved locally, please feel free to report your concerns by contacting a community moderator or staff member. Your report will be handled in accordance with the issue resolution process described below.</p>
 <p>In your report, please include:</p>
@@ -162,17 +158,19 @@
 <li><strong>Equality</strong> - Contribution value or status in the community are not relevant to the review. Key people do not have more rights (either to abuse or to be protected from abuse) than others in the community.</li>
 <li><strong>Independence</strong> - Moderators must act and be seen to act as a neutral party.</li>
 </ul>
-<p>*This code of conduct is based on the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>.</p>
+<p>*This code of conduct is based on the <a href="https://opensource.microsoft.com/codeofconduct/" class="external" target="_blank" rel="noopener">Microsoft Open Source Code of Conduct</a>.</p>
 
         </div>
     </div>
 </div>
 
-<script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
-<script>
-    anchors.add()
-    anchors.remove('.no-anchor')
-</script>
+
+    <script src="/mirror/cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+    <script>
+        anchors.add()
+        anchors.remove('.no-anchor')
+    </script>
+
             </div>
         </main>
 
@@ -187,13 +185,14 @@
             <ul class="is-bar is-text-center">
                 <li><a href="/policies/privacy">Privacy Policy</a></li>
                 <li><a href="/policies/terms">TACOS</a></li>
-                <li><a href="/policies/logos">Logos</a></li>
-                <li><a href="/contact/index">Contact Us</a></li>
+                <li><a href="/policies/privacy">Logos</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </nav>
     </li>
-    <li class="is-text-center">Copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
-    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="nofollow noopener">Statiq</a> and <a href="https://pages.github.com/" target="_blank" rel="nofollow noopener">GitHub Pages</a>.</li>
+    <li class="is-text-center">Documentation licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC NC-BY 4.0</a> except where otherwise noted.</li>
+    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="noopener">Statiq</a> and <a href="https://www.nearlyfreespeech.net/" target="_blank" rel="noopener">NearlyFreeSpeech.Net</a>.</li>
     <li class="is-text-center is-muted">Built by our wonderful <a href="/contributors">contributors</a>.</li>
 </ul>
                     </div>               
@@ -203,6 +202,8 @@
         </footer>
     </div>
     <script src="/assets/js/kube.min.js"></script>
+    <script src="/assets/js/kube.addons.min.js"></script>
+    <script src="/assets/js/prism.js"></script>
     <script src="/assets/js/site.js"></script>
 
 
