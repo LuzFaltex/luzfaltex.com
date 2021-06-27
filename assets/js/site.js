@@ -61,14 +61,14 @@ function changeTheme(isDark) {
         if (cookieConsent === "true") {
             setCookie('theme', 'dark');
         }
-        document.body.setAttribute('data-theme', 'dark');
+        document.body.className = "theme-dark"
         themeSwitch.checked = true;
     }
     else {
         if (cookieConsent === "true") {
             setCookie('theme', 'light');
         }
-        document.body.setAttribute('data-theme', 'light');
+        document.body.className = "theme-light"
         themeSwitch.checked = false;
     }
 }
