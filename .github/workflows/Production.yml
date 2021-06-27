@@ -38,11 +38,9 @@ jobs:
       - name: deploy site
         uses: marcodallasanta/ssh-scp-deploy@v1.0.4
         env:
-          host: "ssh.phx.nearlyfreespeech.net"
-          user: ${{ secrets.USERNAME }}
-          password: ${{ secrets.SSH_PASSPHRASE }}
-          local: "output/"
-          remote: "/home/public"
-          pre_upload: echo "Pushing latest version of the website..."
-          post_upload: echo "Finished!"
+          HOST: "ssh.phx.nearlyfreespeech.net"
+          USER: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.SSH_PASSPHRASE }}
+          LOCAL: "output/"
+          REMOTE: "/home/public"
           
