@@ -36,7 +36,7 @@ jobs:
 
       # Push site to S3
       - name: deploy site
-        uses: mdallasanta/ssh-scp-deploy@1.0.4
+        uses: marcodallasanta/ssh-scp-deploy@v1.0.4
         env:
           host: "ssh.phx.nearlyfreespeech.net"
           user: ${{ secrets.USERNAME }}
