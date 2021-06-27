@@ -36,7 +36,7 @@ jobs:
 
       # Push site to S3
       - name: deploy site
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: easingthemes/ssh-deploy@v2.2.11
         env:
           REMOTE_HOST: "ssh.phx.nearlyfreespeech.net"
           REMOTE_USER: ${{ secrets.USERNAME }}
