@@ -36,11 +36,13 @@ jobs:
 
       # Push site to S3
       - name: deploy site
-        uses: hengkx/ssh-deploy@v1.0.1
+        uses: mdallasanta/ssh-scp-deploy@1.0.4
         env:
-          HOST: "ssh.phx.nearlyfreespeech.net"
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.SSH_KEY }}
-          SOURCE: "output/"
-          TARGET: "/home/public"
+          host: "ssh.phx.nearlyfreespeech.net"
+          user: ${{ secrets.USERNAME }}
+          password: ${{ secrets.SSH_PASSPHRASE }}
+          local: "output/"
+          remote: "/home/public"
+          pre_upload: echo "Pushing latest version of the website..."
+          post_upload: echo "Finished!"
           
