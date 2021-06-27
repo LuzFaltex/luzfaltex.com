@@ -27,7 +27,7 @@ Our communities strive to:
 
 ## Scope
 
-This code applies to all LuzFaltex communities, sites, and services as per your agreement with the [TACOS](xref:terms). This code also applies in public spaces when an individual is representing a project or its community. Examples include an official project e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by the project itself.
+This code applies to all LuzFaltex communities, sites, and services as per your agreement with the [TACOS](xref:terms). This code also applies in public spaces when an individual is representing a LuzFaltex or any of its communities. Examples include an using an official LuzFaltex e-mail address, posing via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a community may be further defined and clarified by the community itself.
 
 ## Reporting Code of Conduct Issues
 

@@ -1,12 +1,47 @@
 // Vars Override
 @import "./luzfaltex.theme.vars.scss";
 
+// Themify engine
+@import "./themify";
+
 @import "./mixins";
 @import "./modules";
 
 // Addons
 @import "./addons/upload.scss";
 
+// Global Colors
+$color-orange: #ff4700;
+$color-link-hover: $color-orange;
+$color-foreground: #fff;
+
+// Themes
+$themes: (
+    dark: (
+        body-background: #0d1117,
+        color-text: #eee,           
+        background-box: #161b22,    
+        background-child-box: #22232b,
+        background-light: #32343b,
+        input-bg: #32343b,
+        header-bg: #161b22,
+        color-link: #fff,
+        tree-connectors: #eee
+    ),
+    light: (
+        body-background: #fff,
+        color-text: #222,
+        background-box: #eee,
+        background-child-box: #ddd,
+        header-bg: transparent,
+        background-light: #666,
+        input-bg: #fff,
+        color-link: #222,
+        tree-connectors: #222
+    )
+);
+
+// Helpers
 @mixin font-awesome($content, $weight)
 {
     font-family: "Font Awesome 5 Pro";
@@ -42,38 +77,20 @@
     -ms-backface-visibility: hidden;
 }
 
-// Color overrides
-:root {
-    --body-background: #{$body-background};
-    --color-text: #{$color-text};
-    --color-orange: #{$color-orange};    
-    --background-box: #{$background-box};    
-    --background-child-box: #{$background-child-box};
-    --header-bg: var(--background-box);
-    --background-light: #{$background-light};
-    --color-link: #{$color-link};
-    --color-link-hover: #{$color-link-hover};
-    --color-foreground: #{$color-foreground};
-    --color-inverted: #{$color-inverted};
-    --color-button: #{$color-focus};
-}
-
-[data-theme="light"] {
-    --body-background: #fff;
-    --color-text: #222;
-    --background-box: #eee;
-    --background-child-box: #ddd;
-    --header-bg: transparent;
-    --background-light: #666;
-    --color-link: #222;
-    --color-button: #{$color-button};
-}
-
 body {
-    background-color: var(--body-background);
-    color: var(--color-text);
-    transition: background-color 1s;
-    transition: color 1s;
+    @include transition(background-color 1s);
+    @include transition(color 1s);
+    @include themify-self($themes) {
+        background-color: themed(body-background);
+        color: themed(color-text);
+    }
+}
+
+a {
+    text-decoration: underline;
+    @include themify($themes) {
+        color: themed(color-link);
+    }
 }
 
 .logo {
@@ -84,7 +101,9 @@ body {
     text-decoration: none;
 
     &:hover {
-        color: var(--color-link);
+        @include themify($themes) {
+            color: themed(color-link)
+        }
     }
 
     img {
@@ -102,16 +121,22 @@ body {
 
 .header {
     @include flex;
-    background-color: var(--header-bg);
     padding: 23px;
     align-items: center;
     min-height: 120px;
     max-height: 100%;
+
+    @include themify($themes) {
+        background-color: themed(header-bg);
+    }
 }
 
 .navMenu {
-    background-color: var(--background-light);
-    border-top: 1px solid var(--color-orange);
+    border-top: 1px solid $color-orange;
+    @include themify($themes) {
+        background-color: themed(background-light);
+    }
+
     @include not-mobile() {
         max-height: 50px;
     }  
@@ -132,25 +157,24 @@ body {
     a {
         text-decoration: none;
         border-bottom: 3px solid transparent;
-    
+        
         &:not(.button) {
             font-weight: 600;
             line-height: normal;
             font-size: 14px;
             text-transform: uppercase;
-            color: $color-link;
+            color: $color-foreground;
             background: transparent;
             border-radius: 0px;
-            padding: 16px 27px;
+            padding: 16px 27px;    
         }
     
         &:hover {
-            background-color: rgba(var(--color-orange), .7);
-            border-bottom-color: var(--color-foreground);
+            border-bottom-color: $color-foreground;
         }
     
         &.is-active {
-            background-color: var(--color-orange);
+            background-color: $color-orange;
         }
     }
 
@@ -163,6 +187,10 @@ body {
     @include flex;
     flex: 1;
     align-items: center;
+
+    a {
+        color: $color-foreground;
+    }
 
     & ul {
         display: flex;
@@ -181,11 +209,15 @@ body {
 
 .box {
     margin-top: 20px;
-    background-color: var(--background-box);
     padding: 20px;
+    @include themify($themes) {
+        background-color: themed(background-box);
+    }
 
     .box {
-        background-color: var(--background-child-box);
+        @include themify($themes) {
+            background-color: themed(background-child-box);
+        }
     }
 }
 
@@ -209,9 +241,11 @@ body {
 }
 
 .extendedFooter {
-    background-color: var(--background-box);
     margin-top: 20px;
     padding: 30px 15px 30px 15px;
+    @include themify($themes) {
+        background-color: themed(background-box);
+    }
 }
 
 .copyrightFooter {
@@ -219,23 +253,23 @@ body {
     padding: 23px;
 }
 
-a {
-    text-decoration: underline;
-    color: var(--color-link);
+.is-muted {
+    @include themify($themes) {
+        color: rgba(themed(color-link), 0.6);
+    }
 }
 
-.is-muted {
-    color: rgba(var(--color-text), .1);
-}
 .is-muted a,
 a.is-muted {
-    color: rgba(var(--color-link), .1);
     text-decoration: none;
+    @include themify($themes) {
+        color: rgba(themed(color-link), 0.6);
+    }
 }
 .is-muted a:hover,
 a.is-muted:hover {
     @include transition;
-    color: rgba(var(--color-link-hover), .1);
+    color: rgba($color-link-hover, 0.6);
 }
 
 .alert {
@@ -261,7 +295,9 @@ a.is-muted:hover {
 }
 
 table > thead > tr {
-    background-color: var(--background-light);
+    @include themify($themes) {
+        background-color: themed(background-light);
+    }
 }
 
 table.is-striped {     
@@ -270,7 +306,9 @@ table.is-striped {
     }
 
     tr:nth-child(even) {
-        background-color: var(--body-background);
+        @include themify($themes) {
+            background-color: themed(body-background);
+        }
     }
 }
 
@@ -305,7 +343,7 @@ ul.is-list, ol.is-list {
         display: none;
 
         &:checked ~ .toggle-label {
-            background: var(--color-orange);
+            background: $color-orange;
 
             &::before {
                 -webkit-transform: translateX(100%);
@@ -323,10 +361,13 @@ ul.is-list, ol.is-list {
         width: 40px;
         height: 20px;
         position: relative;
-        background: var(--background-box);
         border-radius: 10px;
-        transition: background 0.2s ease;
+        @include transition(background 0.2s ease);
         cursor: pointer;
+
+        @include themify($themes) {
+            background-color: themed(background-box);
+        }
 
         &::before {
             content: '';
@@ -339,23 +380,22 @@ ul.is-list, ol.is-list {
             position: absolute;
             left: 0;
             top: 0;
-            transition: transform 0.2s ease-in-out;
+            @include transition(transform 0.2s ease-in-out);
         }
     }
 }
 
 blockquote {
-    color: rgba(var(--color-text), .6);
+    @include themify($themes) {
+        color: rgba(themed(color-text), 0.6);
+    }
     font-size: unset;
 }
 
 h1, h2, h3, h4, h5, h6 {
     &:target {
-        -moz-transition: color .3s ease-in;
-        -o-transition: color .3s ease-in;
-        -webkit-transition: color .3s ease-in;
-        transition: color .3s ease-in;
-        color: var(--color-orange)
+        @include transition(color .3s ease-in);
+        color: $color-orange
     }
 }
 
@@ -384,7 +424,9 @@ hr {
     padding: 0;
     margin: 24px 0;
     border-bottom: 1px solid;
-    border-bottom-color: rgba(var(--color-text), 0.1);
+    @include themify($themes) {
+        border-bottom-color: rgba(themed(color-text), 0.1);
+    }
 }
 
 .external {
@@ -398,6 +440,9 @@ hr {
 }
 
 .button {
+    @include themify($themes) {
+        color: $color-foreground;
+    }    
     &.is-secondary {
         color: var(--color-button);
         border-color: var(--color-button);
@@ -405,29 +450,42 @@ hr {
     &.is-tertiary {
         color: var(--color-button);
         :hover {
-            color: var(--color-text);
+            @include themify($themes) {
+                color: themed(color-text);
+            }
         }
     }
 }
 label, legend {
-    color: var(--color-text);
+    @include themify($themes) {
+        color: themed(color-text);
+    }
 }
 [data-theme="dark"] select {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="12" viewBox="0 0 9 12"><path fill="rgb(238, 238, 238)" d="M0.722,4.823L-0.01,4.1,4.134-.01,4.866,0.716Zm7.555,0L9.01,4.1,4.866-.01l-0.732.726ZM0.722,7.177L-0.01,7.9,4.134,12.01l0.732-.726Zm7.555,0L9.01,7.9,4.866,12.01l-0.732-.726Z"/></svg>');
 }
 input, select, textarea {
-    color: var(--color-text);
-    background-color: var(--background-light);
-    &:hover, &:active, &:focus {
-        background-color: var(--background-light);
+    @include themify($themes) {
+        color: themed(color-text);
+        background-color: themed(background-light);
     }
-    &::placeholder {        
-        color: var(--color-text);
+
+    &:hover, &:active, &:focus {
+        @include themify($themes) {
+            background-color: themed(background-light);
+        }
+    }
+    &::placeholder {
         opacity: 0.5;
+        @include themify($themes) {
+            color: themed(color-text);
+        }
     }
 }
 fieldset {
-    border-color: rgba(var(--color-text), 0.1);
+    @include themify($themes) {
+        border-color: rgba(themed(color-text), 0.1);
+    }
 }
 
 .is-right-mobile {
@@ -449,7 +507,9 @@ img.is-round-image {
 .is-card {
     @include flex;
     @include flex-items-column;
-    @include make-card($background-child-box);
+    @include themify($themes) {
+        @include make-card(themed(background-child-box));
+    }
     border-radius: 0.25rem;
 
     &>.is-card-header {
@@ -491,31 +551,39 @@ img.is-round-image {
         background-image: none;
         &::after {
             display: none;
-            color: var(--color-text);
             @include font-awesome-solid("\f00d");
+            @include themify($themes) {
+                color: themed(color-text);
+            }
         }
     }
     
 
     .form-control, .choices[data-type*="select-one"] {
-        color: var(--color-text);
-        background-color: var(--background-light);
+        @include themify($themes) {
+            color: themed(color-text);
+            background-color: themed(input-bg);
+        }
         border: $input-default-border-width $input-default-border-style $input-default-border-color;
         border-radius: $input-default-border-radius;
         opacity: 100%;
         &:hover {
-            background-color: var(--background-light);
+            @include themify($themes) {
+                background-color: themed(input-bg);
+            }
             border: $input-hover-border-width $input-hover-border-style $input-hover-border-color;
             box-shadow: $input-hover-box-shadow;
         }
         &:focus {
-            color: var(--color-text);
-            background-color: var(--background-light);
+            @include themify($themes) {
+                color: themed(color-text);
+                background-color: themed(input-bg);
+            }
             border: $input-focus-border-width $input-focus-border-style $input-focus-border-color;
             box-shadow: $input-focus-box-shadow;
         }
         &::placeholder {
-            color: var(--color-text);
+            color: $color-foreground;
             opacity: 0.5;
         }
 
@@ -525,8 +593,10 @@ img.is-round-image {
     }
 
     .choices__item {
-        color: var(--color-text);
-        background-color: var(--background-light);
+        @include themify($themes) {
+            color: themed(color-text);
+            background-color: themed(input-bg);
+        }
         border: none;
     }
 
@@ -545,7 +615,9 @@ img.is-round-image {
 
         &,
         & .choices__item--selectable.is-highlighted {
-            background-color: var(--background-light);
+            @include themify($themes) {
+                background-color: themed(input-bg);
+            }
         }
     }
 
@@ -587,9 +659,13 @@ img.is-round-image {
 
     .list-group-item {
         .list-group-header {
-            background-color: var(--background-child-box);
+            @include themify($themes) {
+                background-color: themed(background-child-box);
+            }
         }
-        background-color: var(--background-light);
+        @include themify($themes) {
+            background-color: themed(input-bg);
+        }
     }
 
     .ck {
