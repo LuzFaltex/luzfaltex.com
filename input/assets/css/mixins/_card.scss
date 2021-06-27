@@ -1,0 +1,14 @@
+@mixin make-card($color) {
+    background-color: rgba($color, 0.4);
+    border: 1px solid rgba($color, 0.4);
+
+    &>.is-card-header {
+        background-color: $color;
+        border-bottom: 1px solid rgba($color, 0.4);
+    }
+
+    &>.is-card-footer {
+        background-color: $color;
+        border-top: 1px solid rgba($color, 0.4);
+    }
+}

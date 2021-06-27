@@ -2,3 +2,26 @@
 Title: DMCA Counter Notice
 xref: dmca-counter-notice
 ---
+@{
+    var formLink = "https://mqabrieontgzqiu.form.io/counter-notice";
+    var submitCounter = Context.GetLink("/docs/dmca/counter-notice", true) + "#how-to-submit-your-counter-notice";
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Formio.createForm(document.getElementById('formio'), '@formLink')
+            .then(function(formio) {
+                formio.on('submitDone', function(submission) {
+                    window.location = '/contact/submitted'
+                });
+            }
+        );
+    });
+</script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
+
+<h1>DMCA Counter Notice</h1>
+<p>If you believe your content on a LuzFaltex project was mistakenly disabled by a DMCA takedown request, you have the right to contest the takedown by submitting a counter-notice. IF you do, we will wait 10-14 days and re-enable your content unless the copyright owner initiates legal action against you before then.</p>
+<p>The form below includes information that LuzFaltex needs in order to process a counter notice to a DMCA takedown request. Before you begin, please read <a href="@submitCounter">LuzFaltex's Guide to Submitting a DMCA Counter-Notice</a>.</p>
+<div id="formio" class="bootstrapWrapper"></div>
+<noscript>The webform requires Javascript. If you are unable or unwilling to allow Javascript execution on your device, please refer to our <a href="@submitCounter">Guide to submitting a DMCA Takedown Notice</a> to see alternative methods of submitting a takedown notice.</noscript>

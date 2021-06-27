@@ -3,5 +3,23 @@ Title: Support
 xref: contact-support
 ---
 @{
-    // Categories: abuse, privacy question, general, received DMCA notice... others?
+    var formLink = "https://mqabrieontgzqiu.form.io/contact";
 }
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Formio.createForm(document.getElementById('formio'), '@formLink')
+            .then(function(formio) {
+                formio.on('submitDone', function(submission) {
+                    window.location = '/contact/submitted'
+                });
+            }
+        );
+    });
+</script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
+
+
+<h1>Contact Us</h1>
+<div id="formio" class="bootstrapWrapper"></div>
+<noscript>The webform requires Javascript. If you are unable or unwilling to allow Javascript execution on your device, please send an email to <a href="mailto:support@luzfaltex.com">support@luzfaltex.com</a> instead.</noscript>

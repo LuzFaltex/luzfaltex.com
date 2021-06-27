@@ -33,6 +33,7 @@ bld/
 [Oo]utput/
 [Tt]emp/
 input/assets/js/compiled/
+[Cc]ache
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

@@ -11,17 +11,28 @@ namespace LuzFaltex.Web
     {
         public static async Task<int> Main(string[] args)
         {
-            return await Bootstrapper
+            var bootstrapper = Bootstrapper
             .Factory
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                settings[Keys.Host] = args.Contains("preview") ? string.Empty : "www.luzfaltex.com";
+                settings[Keys.Host] = args.Contains("--development") || args.Contains("preview") ? string.Empty : "www.luzfaltex.com";
             })
             .AddShortcode(Constants.EditLink, 
                 (content, parameters, document, context) 
-                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.github.io")
-            .RunAsync();
+                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.com");
+
+            if (args.Contains("--development"))
+            {
+                bootstrapper.DeployToGitHubPagesBranch(
+                    "LuzFaltex",
+                    "luzfaltex.com",
+                    Config.FromSetting<string>("GITHUB_TOKEN"),
+                    "gh_pages"
+                );
+            }
+
+            return await bootstrapper.RunAsync();
         }
     }
 }

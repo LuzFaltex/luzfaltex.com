@@ -1,6 +1,6 @@
 # This workflow will compile the site and push the compiled HTML to NearlyFreeSpeech.net using an SSH key.
 
-name: NFSN
+name: Development
 
 # Controls when the action will run. 
 on:
@@ -30,17 +30,9 @@ jobs:
         with:
           dotnet-version: '5.0.x'
 
-      # Build
+      # Build and push to GitHub Pages
       - name: build site
-        run: dotnet run -- deploy
-
-      # Push site to NFSN
-      - name: deploy site
-        uses: easingthemes/ssh-deploy@v2.1.5
+        run: dotnet run -- deploy --development
         env:
-          REMOTE_HOST: "ssh.phx.nearlyfreespeech.net"
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          SOURCE: "output/"
-          TARGET: "/home/public"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
