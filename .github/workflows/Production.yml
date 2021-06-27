@@ -36,11 +36,11 @@ jobs:
 
       # Push site to S3
       - name: deploy site
-        uses: easingthemes/ssh-deploy@v2.2.11
+        uses: hengkx/ssh-deploy@v1.0.1
         env:
-          REMOTE_HOST: "ssh.phx.nearlyfreespeech.net"
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          HOST: "ssh.phx.nearlyfreespeech.net"
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.SSH_KEY }}
           SOURCE: "output/"
           TARGET: "/home/public"
           
