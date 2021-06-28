@@ -5283,3 +5283,7 @@ a.bootstrapWrapper .badge-dark:focus, a.bootstrapWrapper .badge-dark.focus { out
 .bootstrapWrapper .ck { color: black; }
 
 select.flatpickr-monthDropdown-months { display: inline-block; }
+
+.theme-dark .discord-logo path { fill: white; }
+
+.theme-light .discord-logo path { fill: #23272A; }
