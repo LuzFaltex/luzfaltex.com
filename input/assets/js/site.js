@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function changeTheme(isDark) {
     var themeSwitch = document.getElementById('themeSwitch');
-    var cookieConsent = getCookie('cookieConsent')
+    var cookieConsent = getCookie('cookieConsent');
 
     if (isDark === true) {
         if (cookieConsent === "true") {

@@ -26,7 +26,8 @@ $themes: (
         input-bg: #32343b,
         header-bg: #161b22,
         color-link: #fff,
-        tree-connectors: #eee
+        tree-connectors: #eee,
+        discord-logo-color: white
     ),
     light: (
         body-background: #fff,
@@ -37,7 +38,8 @@ $themes: (
         background-light: #666,
         input-bg: #fff,
         color-link: #222,
-        tree-connectors: #222
+        tree-connectors: #222,
+        discord-logo-color: #23272A
     )
 );
 
@@ -675,4 +677,10 @@ img.is-round-image {
 
 select.flatpickr-monthDropdown-months {
     display: inline-block;
+}
+
+.discord-logo path {
+    @include themify($themes) {
+        fill: themed(discord-logo-color);
+    }
 }
