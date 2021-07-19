@@ -36,6 +36,7 @@ jobs:
         with:
           server: ssh.phx.nearlyfreespeech.net
           protocol: ftps
+          port: 22
           server-dir: /home/public/
           username: ${{ secrets.NFSN_USERNAME }}
           password: ${{ secrets.NFSN_PASSWORD }}          
