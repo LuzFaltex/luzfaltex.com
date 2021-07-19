@@ -1,0 +1,41 @@
+# This workflow will compile the site and push the compiled HTML to NearlyFreeSpeech.net using an SSH key.
+
+name: NearlyFreeSpeech
+
+# Controls when the action will run. 
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@master
+        with:
+          submodules: recursive
+
+      # Set up dotnet
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+
+      # Build
+      - name: build site
+        run: dotnet run -- deploy
+
+      # Push site to NFSN
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ssh.phx.nearlyfreespeech.net
+          protocol: ftps
+          server-dir: /home/public/
+          username: ${{ secrets.NFSN_USERNAME }}
+          password: ${{ secrets.NFSN_PASSWORD }}          
