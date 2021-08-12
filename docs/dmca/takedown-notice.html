@@ -191,10 +191,14 @@ SHAWNEE, KS 66216-3800<br>
         </nav>
     </li>
     <li class="is-text-center">Documentation licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC NC-BY 4.0</a> except where otherwise noted.</li>
-    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-2021, all rights reserved.</li>
+    <li class="is-text-center">All other content copyright © LuzFaltex, LLC 2014-<span id="year"></span>, all rights reserved.</li>
     <li class="is-text-center is-muted">Powered by <a href="https://statiq.dev/" target="_blank" rel="noopener">Statiq</a> and <a href="https://www.nearlyfreespeech.net/" target="_blank" rel="noopener">NearlyFreeSpeech.Net</a>.</li>
     <li class="is-text-center is-muted">Built by our wonderful <a href="https://github.com/LuzFaltex/luzfaltex.com/graphs/contributors" target="_blank" rel="noopener">contributors</a>.</li>
 </ul>
+
+<script>
+    document.getElementById("year").innerHTML = new Date().getUTCFullYear();
+</script>
                     </div>               
                 </div>                
 
