@@ -38,4 +38,4 @@ jobs:
           local: output/
           remote: /home/public/
           username: ${{ secrets.NFSN_USERNAME }}
-          password: ${{ secrets.NFSN_PASSWORD }}          
+          password: ${{ secrets.NFSN_PASSWORD }}
