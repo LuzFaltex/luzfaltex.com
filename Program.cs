@@ -11,16 +11,18 @@ namespace LuzFaltex.Web
     {
         public static async Task<int> Main(string[] args)
         {
+
             var bootstrapper = Bootstrapper
             .Factory
             .CreateWeb(args)
             .ConfigureSettings(settings =>
             {
-                settings[Keys.Host] = args.Contains("--development") || args.Contains("preview") ? string.Empty : "www.luzfaltex.com";
+                settings[Constants.Environment] = args.Contains("--development") || args.Contains("preview") ? Constants.Development : Constants.Production;
+                settings[Keys.Host] = settings[Constants.Environment] is Constants.Development ? string.Empty : "www.luzfaltex.com";
             })
             .AddShortcode(Constants.EditLink, 
                 (content, parameters, document, context) 
-                => document[Constants.EditLink] is string editLink ? editLink : "https://github.com/LuzFaltex/luzfaltex.com");
+                => document[Constants.EditLink] as string ?? "https://github.com/LuzFaltex/luzfaltex.com");
 
             if (args.Contains("--development"))
             {

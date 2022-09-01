@@ -12,5 +12,9 @@ namespace LuzFaltex.Web
         public const string PoliciesEnableHeaderLink = nameof(PoliciesEnableHeaderLink);
         public const string Icon = nameof(Icon);
         public const string NonBreakingSpace = "\u00A0";
+
+        public const string Environment = nameof(Environment);
+        public const string Production = nameof(Production);
+        public const string Development = nameof(Development);
     }
 }

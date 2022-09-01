@@ -122,6 +122,8 @@
 
         <main class="main">
             <div class="layoutContainer">
+                <!-- 
+                Under Construction Warning
                 <div class="alert is-warning">
                     <div class="is-row">
                         <div class="is-col is-container" style="align-items: center; flex-grow: 0">
@@ -132,6 +134,20 @@
                         </div>
                     </div>
                 </div>
+                -->
+                @if (Document[Constants.Environment] is Constants.Development)
+                {
+                    <div class="alert is-warning">
+                    <div class="is-row">
+                        <div class="is-col is-container" style="align-items: center; flex-grow: 0">
+                            <i class="fal fa-construction fa-2x" aria-hidden="true" title="Under Construction"></i>
+                        </div>
+                        <div class="is-col is-container" style="align-items: center">
+                            You are viewing the development version of this website. Site functionality may be broken and documentation may be missing. If you don't know why you're here, go to&nbsp;<a href="https://www.luzfaltex.com">www.luzfaltex.com</a>.
+                        </div>
+                    </div>
+                    </div>
+                }
                 <div class="alert is-info" id="cookieBanner" data-name="cookieBanner" data-kube="alert" style="display: none;">
                     <div class="is-row">
                         <div class="is-col is-container is-items-middle" style="flex-grow: 0;">
@@ -141,7 +157,7 @@
                             Do you consent to us using a cookie to store your theme preference? If you answer no, we will fall back to your browser preference. If you have no stated preference, you get dark theme and the theme feature may not work correctly.
                         </div>
                         <div class="is-col is-container-row is-items-middle" style="justify-content: flex-end; gap: 20px">
-                            <button id="consentPrivacy" class="button" onclick="window.location.href='@privacyPolicyUrl';">Privacy Policy</a>
+                            <button id="consentPrivacy" class="button" onclick="window.location.href='@privacyPolicyUrl';">Privacy Policy</button>
                             <button id="consentAllow" class="button">Allow</button>
                             <button id="consentDeny" class="button is-secondary">Deny</button>
                         </div>
@@ -156,7 +172,7 @@
 
                 <div class="copyrightFooter">
                     <div class="layoutContainer">
-                        <partial name="_footer" />
+                        <partial name="Shared/_footer" />
                     </div>               
                 </div>                
 
